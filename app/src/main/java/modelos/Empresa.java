@@ -6,34 +6,34 @@ public class Empresa {
 //    private String title;
 //    private String body;
 
-    private int idempresa;
-    private String nombreempresa;
-    private String numerotelefono;
+    private String rucEmpresa;
+    private String nombreEmpresa;
+    private String numeroTelefono;
     private String correo;
-    private String descripcion;
 
-    public int getIdempresa() {
-        return idempresa;
+
+    public String getRucEmpresa() {
+        return rucEmpresa;
     }
 
-    public void setIdempresa(int idempresa) {
-        this.idempresa = idempresa;
+    public void setRucEmpresa(String rucEmpresa) {
+        this.rucEmpresa = rucEmpresa;
     }
 
-    public String getNombreempresa() {
-        return nombreempresa;
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
     }
 
-    public void setNombreempresa(String nombreempresa) {
-        this.nombreempresa = nombreempresa;
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
     }
 
-    public String getNumerotelefono() {
-        return numerotelefono;
+    public String getNumeroTelefono() {
+        return numeroTelefono;
     }
 
-    public void setNumerotelefono(String numerotelefono) {
-        this.numerotelefono = numerotelefono;
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
     }
 
     public String getCorreo() {
@@ -42,13 +42,5 @@ public class Empresa {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 }

@@ -35,7 +35,7 @@ public class RespuestaFragment extends Fragment {
 
     private void  MostrarJson(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/empresa/")
+                .baseUrl("http://192.168.1.100:8080/api/empresa/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -52,11 +52,10 @@ public class RespuestaFragment extends Fragment {
                 List<Empresa> lista= response.body();
                 for(Empresa empresa: lista){
                     String content="";
-                    content+="Idnpresa: "+empresa.getIdempresa()+"\n";
-                    content+="Nombre: "+empresa.getNombreempresa()+"\n";
-                    content+="Telefono: "+empresa.getNumerotelefono()+"\n";
-                    content+="Descripcion: "+empresa.getDescripcion()+"\n";
-                    content+="Descripcion: "+empresa.getDescripcion()+"\n";
+                    content+="Nombre: "+empresa.getNombreEmpresa()+"\n";
+                    content+="RUC: "+empresa.getRucEmpresa()+"\n";
+                    content+="Telefono: "+empresa.getNumeroTelefono()+"\n";
+                    content+="Correo: "+empresa.getCorreo()+"\n";
                     mjsonText.append(content);
                 }
             }
