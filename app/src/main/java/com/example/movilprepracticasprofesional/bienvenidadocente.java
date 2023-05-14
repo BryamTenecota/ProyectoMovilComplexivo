@@ -62,7 +62,7 @@ public class bienvenidadocente extends AppCompatActivity implements NavigationVi
                 break;
 
             case R.id.nav_notification_:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NotifaicacionFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NotificacionFragment()).commit();
 
                 break;
 
