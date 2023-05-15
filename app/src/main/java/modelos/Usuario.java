@@ -2,13 +2,22 @@ package modelos;
 
 public class Usuario {
 
-    private PersonaEmpresa personaEmpresa;
+    private String nombres;
+    private String apellidos;
 
-    public PersonaEmpresa getPersonaEmpresa() {
-        return personaEmpresa;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setPersonaEmpresa(PersonaEmpresa personaEmpresa) {
-        this.personaEmpresa = personaEmpresa;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 }

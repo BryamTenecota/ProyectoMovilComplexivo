@@ -6,6 +6,7 @@ package Servicios;
 import java.util.List;
 
 import modelos.Empresa;
+import modelos.Practica;
 import modelos.TutorEmpresarial;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -16,5 +17,5 @@ public interface Servicios {
     Call<List<Empresa>> getEmpresa();
 
     @GET("listar")
-    Call<List<TutorEmpresarial>> getTutorEmpresarial();
+    Call<List<Practica>> getPractica();
 }
