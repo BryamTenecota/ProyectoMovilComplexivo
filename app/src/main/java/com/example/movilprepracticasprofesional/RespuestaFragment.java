@@ -55,6 +55,7 @@ public class RespuestaFragment extends Fragment {
                     content+="Nombre: "+empresa.getNombreEmpresa()+"\n";
                     content+="RUC: "+empresa.getRucEmpresa()+"\n";
                     content+="Telefono: "+empresa.getNumeroTelefono()+"\n";
+                    content+="Direccion: "+empresa.getDireccion()+"\n";
                     content+="Correo: "+empresa.getCorreo()+"\n";
                     mjsonText.append(content);
                 }

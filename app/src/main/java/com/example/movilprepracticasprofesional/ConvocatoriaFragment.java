@@ -36,7 +36,7 @@ public class   ConvocatoriaFragment extends Fragment {
 
     private void  MostrarJson(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.110:8080/api/tutorEmp/")
+                .baseUrl("http://192.168.18.39:8080/api/tutorEmp/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

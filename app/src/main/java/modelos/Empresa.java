@@ -11,6 +11,8 @@ public class Empresa {
     private String numeroTelefono;
     private String correo;
 
+    private String direccion;
+
 
     public String getRucEmpresa() {
         return rucEmpresa;
@@ -42,5 +44,13 @@ public class Empresa {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }
