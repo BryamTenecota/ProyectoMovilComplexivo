@@ -27,10 +27,10 @@ public class RebootServiceClass extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         String intentType = intent.getExtras().getString("caller");
-        if (intentType == null) return;
-        if (intentType.equals("RebootReceiver")) {
+        if (intentType != null && intentType.equals("RebootReceiver")) {
             SharedPreferences settings = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
             Utils.setAlarm(settings.getInt("alarmID", 0), settings.getLong("alarmTime", 0), this);
         }
     }
 }
+

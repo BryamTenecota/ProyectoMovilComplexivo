@@ -21,4 +21,7 @@ public interface Servicios {
 
     @GET("estadoxusuario/{idUsuario}")
     Call<Boolean> getEstadoPorUsuario(@Path("idUsuario") int idUsuario);
+
+    @GET("convocatoriaxusuario/{nombre_carrera}")
+    Call<Boolean> getConvocatoriaPorCarrera(@Path("nombre_carrera") String nombre_carrera);
 }

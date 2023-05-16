@@ -17,5 +17,6 @@ public class Utils {
         pendingIntent = PendingIntent.getBroadcast(ctx, i, alarmIntent, PendingIntent.FLAG_ONE_SHOT);
         alarmIntent.setData((Uri.parse("custom://" + System.currentTimeMillis())));
         alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp, pendingIntent);
+
     }
-}
+    }
