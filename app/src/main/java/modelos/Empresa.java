@@ -1,6 +1,11 @@
 package modelos;
 
-public class Empresa {
+import android.content.Context;
+
+import java.io.Serializable;
+import java.util.List;
+
+public class Empresa implements Serializable {
 //    private int userId;
 //    private int id;
 //    private String title;
@@ -11,6 +16,18 @@ public class Empresa {
     private String numerotelefono;
     private String correo;
     private String descripcion;
+
+
+
+    public Empresa(int idempresa, String nombreempresa, String numerotelefono, String correo, String descripcion) {
+        this.idempresa = idempresa;
+        this.nombreempresa = nombreempresa;
+        this.numerotelefono = numerotelefono;
+        this.correo = correo;
+        this.descripcion = descripcion;
+    }
+
+
 
     public int getIdempresa() {
         return idempresa;
