@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Servicios.Servicios;
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import modelos.Roles;
 import modelos.Usuario;
 import retrofit2.Call;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void  MostrarJson(){
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.5.94:8080/api/user/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -67,31 +69,49 @@ public class MainActivity extends AppCompatActivity {
                     String rol="";
                     us +=user.getCorreo();
                     ps +=user.getContrasenia();
-
-                    Toast.makeText(MainActivity.this, ps, Toast.LENGTH_SHORT).show();
-                    if(txtUser.getText().toString().equals(us)){
+                    String encryptedPassword = ps;
+                    String plainPassword = txtPasword.getText().toString();
+                    boolean passwordMatch = BCrypt.verifyer().verify(plainPassword.toCharArray(), encryptedPassword).verified;
+                    if(txtUser.getText().toString().equals(us) && passwordMatch){
                         for(Roles roles: user.getRoles()){
                             rol += roles.getRolnombre();
-                            Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
-                            Usuario.rol=rol;
                             if(rol.equals("ROLE_ESTUDIANTE")){
-
                                 sesionIniciada = true;
-//                                Toast.makeText(MainActivity.this, "Entrastes como estudiante", Toast.LENGTH_SHORT).show();
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenida.class);
                                 startActivity(vntmenustudiante);
+                                Usuario.rol=rol;
+                                Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
 
                             }
+
                             if(rol.equals("ROLE_TUTORACADEMICO")){
                                 sesionIniciada = true;
-
-                                Toast.makeText(MainActivity.this, "Entrastes como Tutor Empresarial", Toast.LENGTH_SHORT).show();
+                                Intent vntmenustudiante=new Intent(MainActivity.this,bienvenida.class);
+                                startActivity(vntmenustudiante);
+                                Usuario.rol=rol;
+                                Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
 
                             }
                             if(rol.equals("ROLE_TUTOREMPRESARIAL")){
                                 sesionIniciada = true;
+                                Intent vntmenustudiante=new Intent(MainActivity.this,bienvenida.class);
+                                startActivity(vntmenustudiante);
+                                Usuario.rol=rol;
+                                Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
 
-                                Toast.makeText(MainActivity.this, "Entrastes como Tutor Ecargado", Toast.LENGTH_SHORT).show();
+                            }
+                            if(rol.equals("ROLE_CORDINADOR")){
+                                Intent vntmenustudiante=new Intent(MainActivity.this,bienvenida.class);
+                                startActivity(vntmenustudiante);
+                                Usuario.rol=rol;
+                                Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
+
+                            }
+                            if(rol.equals("ROLE_RESPONSABLEPP")){
+                                Intent vntmenustudiante=new Intent(MainActivity.this,bienvenida.class);
+                                startActivity(vntmenustudiante);
+                                Usuario.rol=rol;
+                                Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
 
                             }
                         }
@@ -101,14 +121,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "No se pudo iniciar seccion", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
-
-
 }
