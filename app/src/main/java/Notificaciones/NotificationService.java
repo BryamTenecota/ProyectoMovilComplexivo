@@ -48,9 +48,9 @@ public class NotificationService extends IntentService {
         String message = getString(R.string.new_notification);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            final int NOTIFY_ID = 0; // ID of notification
-            String id = NOTIFICATION_CHANNEL_ID; // default_channel_id
-            String title = NOTIFICATION_CHANNEL_ID; // Default Channel
+            final int NOTIFY_ID = 0;
+            String id = NOTIFICATION_CHANNEL_ID;
+            String title = NOTIFICATION_CHANNEL_ID;
             PendingIntent pendingIntent;
             NotificationCompat.Builder builder;
             NotificationManager notifManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -69,9 +69,9 @@ public class NotificationService extends IntentService {
             mIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             pendingIntent = PendingIntent.getActivity(context, 0, mIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             builder.setContentTitle(getString(R.string.app_name1)).setCategory(Notification.CATEGORY_SERVICE)
-                    .setSmallIcon(R.drawable.ic_notification)   // required
+                    .setSmallIcon(R.drawable.lg)
                     .setContentText(message)
-                    .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.ic_notification))
+                    .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.lg))
                     .setDefaults(Notification.DEFAULT_ALL)
                     .setAutoCancel(true)
                     .setSound(soundUri)
@@ -87,8 +87,8 @@ public class NotificationService extends IntentService {
             pendingIntent = PendingIntent.getActivity(context, 1, mIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             notification = new NotificationCompat.Builder(this)
                     .setContentIntent(pendingIntent)
-                    .setSmallIcon(R.drawable.ic_notification)
-                    .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.ic_notification))
+                    .setSmallIcon(R.drawable.lg)
+                    .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.lg))
                     .setSound(soundUri)
                     .setAutoCancel(true)
                     .setContentTitle(getString(R.string.app_name1)).setCategory(Notification.CATEGORY_SERVICE)

@@ -39,7 +39,7 @@
             android:enabled="true" />
 
 
-        <!-- MAKE ALARMS RESTART ON REBOOT -->
+        <!-- Notificaciones NO TOCAR -->
         <service android:name="Notificaciones.RebootServiceClass"/>
         <receiver android:name="Notificaciones.MyRebootReceiver"
             android:exported="true">

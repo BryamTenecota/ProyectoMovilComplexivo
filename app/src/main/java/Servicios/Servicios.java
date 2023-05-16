@@ -1,8 +1,4 @@
 package Servicios;
-
-
-
-
 import java.util.List;
 
 import modelos.Empresa;
@@ -10,6 +6,7 @@ import modelos.TutorEmpresarial;
 import modelos.Usuario;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface Servicios {
 //    @GET("posts")
@@ -21,4 +18,7 @@ public interface Servicios {
 
     @GET("all")
     Call<List<Usuario>> getUsuarios();
+
+    @GET("estadoxusuario/{idUsuario}")
+    Call<Boolean> getEstadoPorUsuario(@Path("idUsuario") int idUsuario);
 }

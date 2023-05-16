@@ -36,7 +36,7 @@ public class   ConvocatoriaFragment extends Fragment {
 
     private void  MostrarJson(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/tutorEmp/")
+                .baseUrl("http://192.168.18.23:8080/api/tutorEmp/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -53,8 +53,8 @@ public class   ConvocatoriaFragment extends Fragment {
                 List<TutorEmpresarial> lista= response.body();
                 for(TutorEmpresarial tutorEmpresarial: lista){
                     String content="";
-                    content+="Nombre Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_nombre()+"\n";
-                    content+="Apellido Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_apellido()+"\n";
+                  //  content+="Nombre Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_nombre()+"\n";
+                //    content+="Apellido Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_apellido()+"\n";
                     content+="Empresa: "+tutorEmpresarial.getEmpresa().getNombreEmpresa()+"\n";
                     content+="Cargo: "+tutorEmpresarial.getCargo()+"\n";
                     mjsonText.append(content);
