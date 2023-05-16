@@ -1,16 +1,13 @@
 package com.example.movilprepracticasprofesional;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
-import java.util.ArrayList;
-import java.util.List;
+import modelos.bienvenida;
 
 @SuppressLint("WrongViewCast")
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void logueado(View view) {
-        Intent vntmenustudiante=new Intent(MainActivity.this,bienvenida.class);
+        Intent vntmenustudiante=new Intent(MainActivity.this, bienvenida.class);
         startActivity(vntmenustudiante);
     }
   //  Button myButton;{myButton = findViewById(R.id.iconImageView);}

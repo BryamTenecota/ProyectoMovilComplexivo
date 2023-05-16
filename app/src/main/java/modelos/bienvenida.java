@@ -1,4 +1,4 @@
-package com.example.movilprepracticasprofesional;
+package modelos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -11,6 +11,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.movilprepracticasprofesional.ConvocatoriaFragment;
+import com.example.movilprepracticasprofesional.HomeFragment;
+import com.example.movilprepracticasprofesional.InfoFragment;
+import com.example.movilprepracticasprofesional.NotificacionFragment;
+import com.example.movilprepracticasprofesional.PracticanteFragment;
+import com.example.movilprepracticasprofesional.R;
+import com.example.movilprepracticasprofesional.RespuestaFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class bienvenida extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -68,6 +75,10 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
 
             case R.id.nav_respuesta:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RespuestaFragment()).commit();
+                break;
+
+            case R.id.nav_practicante:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PracticanteFragment()).commit();
                 break;
             case R.id.nav_exit:
                 Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();

@@ -34,6 +34,12 @@
             android:title="Respuesta"
             />
 
+        <item
+            android:id="@+id/nav_practicante"
+            android:icon="@drawable/quickreply_nav"
+            android:title="Practicante"
+            />
+
     </group>
 
 

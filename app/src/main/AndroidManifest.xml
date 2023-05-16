@@ -18,7 +18,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".bienvenida"
+            android:name="modelos.bienvenida"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity

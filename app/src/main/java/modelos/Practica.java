@@ -4,8 +4,9 @@ import java.util.List;
 
 public class Practica {
 
+
     private String horaInicio;
-    private String horaFin;
+    private String horaSalida;
 
     private List<TutorEmpresarial> tutorEmpresarials;
     private List<Usuario> usuarios;
@@ -18,12 +19,12 @@ public class Practica {
         this.horaInicio = horaInicio;
     }
 
-    public String getHoraFin() {
-        return horaFin;
+    public String getHoraSalida() {
+        return horaSalida;
     }
 
-    public void setHoraFin(String horaFin) {
-        this.horaFin = horaFin;
+    public void setHoraSalida(String horaSalida) {
+        this.horaSalida = horaSalida;
     }
 
     public List<TutorEmpresarial> getTutorEmpresarials() {

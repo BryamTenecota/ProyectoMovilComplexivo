@@ -69,6 +69,12 @@ public class bienvenidadocente extends AppCompatActivity implements NavigationVi
             case R.id.nav_respuesta:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RespuestaFragment()).commit();
                 break;
+
+            case R.id.nav_practicante:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PracticanteFragment()).commit();
+                Toast.makeText(this, "hool", Toast.LENGTH_SHORT).show();
+                break;
+
             case R.id.nav_exit:
                 Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
                 break;

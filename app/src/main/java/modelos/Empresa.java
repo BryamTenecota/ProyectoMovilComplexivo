@@ -1,18 +1,21 @@
 package modelos;
 
+import java.util.List;
+
 public class Empresa {
-//    private int userId;
-//    private int id;
-//    private String title;
-//    private String body;
+        private String nombreEmpresa;
+        private String rucEmpresa;
+        private String numeroTelefono;
+        private String direccion;
+        private String correo;
 
-    private String rucEmpresa;
-    private String nombreEmpresa;
-    private String numeroTelefono;
-    private String correo;
+        public String getNombreEmpresa() {
+            return nombreEmpresa;
+        }
 
-    private String direccion;
-
+        public void setNombreEmpresa(String nombreEmpresa) {
+            this.nombreEmpresa = nombreEmpresa;
+        }
 
     public String getRucEmpresa() {
         return rucEmpresa;
@@ -20,14 +23,6 @@ public class Empresa {
 
     public void setRucEmpresa(String rucEmpresa) {
         this.rucEmpresa = rucEmpresa;
-    }
-
-    public String getNombreEmpresa() {
-        return nombreEmpresa;
-    }
-
-    public void setNombreEmpresa(String nombreEmpresa) {
-        this.nombreEmpresa = nombreEmpresa;
     }
 
     public String getNumeroTelefono() {
@@ -38,14 +33,6 @@ public class Empresa {
         this.numeroTelefono = numeroTelefono;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
     public String getDireccion() {
         return direccion;
     }
@@ -53,4 +40,13 @@ public class Empresa {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 }
+
