@@ -5,6 +5,7 @@ package Servicios;
 
 import java.util.List;
 
+import modelos.Convocatorias;
 import modelos.Empresa;
 import modelos.TutorEmpresarial;
 import retrofit2.Call;
@@ -17,4 +18,7 @@ public interface Servicios {
 
     @GET("listar")
     Call<List<TutorEmpresarial>> getTutorEmpresarial();
+
+    @GET("listar")
+    Call<List<Convocatorias>> getConvocatorias();
 }
