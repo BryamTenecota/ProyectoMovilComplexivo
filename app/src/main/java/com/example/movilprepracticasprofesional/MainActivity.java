@@ -19,6 +19,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import Notificaciones.AlarmReceiver;
+import Notificaciones.AlarmReceiver2;
 import Servicios.Servicios;
 import modelos.Roles;
 import modelos.Usuario;
@@ -53,13 +54,15 @@ public class MainActivity extends AppCompatActivity {
         txtPasword = findViewById(R.id.password);
 
         // Notificación
+        settings = getSharedPreferences(getString(R.string.title), Context.MODE_PRIVATE);
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlarmReceiver.class);
         alarmIntent = PendingIntent.getBroadcast(this, alarmID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 // Servicio de conversación
+        settings = getSharedPreferences(getString(R.string.title), Context.MODE_PRIVATE);
         alarmManager2 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent2 = new Intent(this, AlarmReceiver.class); // Reemplaza "AnotherAlarmReceiver" con el nombre de tu clase BroadcastReceiver para el segundo servicio
+        Intent intent2 = new Intent(this, AlarmReceiver2.class); // Reemplaza "AnotherAlarmReceiver" con el nombre de tu clase BroadcastReceiver para el segundo servicio
         alarmIntent2 = PendingIntent.getBroadcast(this, alarmID2, intent2, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
@@ -154,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                     if (estadosoli) {
                         Calendar today = Calendar.getInstance();
                         today.add(Calendar.SECOND, 5);
-                       // alarmManager.setExact(AlarmManager.RTC_WAKEUP, today.getTimeInMillis(), alarmIntent);
+                        alarmManager.setExact(AlarmManager.RTC_WAKEUP, today.getTimeInMillis(), alarmIntent);
                     }
                 } else {
                     Toast.makeText(MainActivity.this, "No vale", Toast.LENGTH_SHORT).show();
@@ -182,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Este es lestado: " + estadoConvo, Toast.LENGTH_SHORT).show();
                         Calendar today2 = Calendar.getInstance();
                         today2.add(Calendar.SECOND, 5);
-                        alarmManager.setExact(AlarmManager.RTC_WAKEUP, today2.getTimeInMillis(), alarmIntent);
+                        alarmManager2.setExact(AlarmManager.RTC_WAKEUP, today2.getTimeInMillis(), alarmIntent2);
                     }
                 } else {
                     Toast.makeText(MainActivity.this, "No vale", Toast.LENGTH_SHORT).show();
@@ -190,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<Boolean> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "No se conecta", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

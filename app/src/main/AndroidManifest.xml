@@ -30,19 +30,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Notificaciones NO TOCAR -->
         <receiver
             android:name="Notificaciones.AlarmReceiver"
             android:enabled="true" />
-
         <service
             android:name="Notificaciones.NotificationService"
             android:enabled="true" />
-
-
-        <!-- Notificaciones NO TOCAR -->
+        <receiver
+            android:name="Notificaciones.AlarmReceiver2"
+            android:enabled="true" />
+        <service
+            android:name="Notificaciones.NotificationServiceConvo"
+            android:enabled="true" />
         <service android:name="Notificaciones.RebootServiceClass"/>
         <receiver android:name="Notificaciones.MyRebootReceiver"
             android:exported="true">
+            <!-- FIN NO TOCAR -->
+
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
