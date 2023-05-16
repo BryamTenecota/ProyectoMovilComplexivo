@@ -8,6 +8,7 @@ import java.util.List;
 import modelos.Convocatorias;
 import modelos.Empresa;
 import modelos.TutorEmpresarial;
+import modelos.Usuario;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -21,4 +22,6 @@ public interface Servicios {
 
     @GET("listar")
     Call<List<Convocatorias>> getConvocatorias();
+    @GET("all")
+    Call<List<Usuario>> getUsuarios();
 }
