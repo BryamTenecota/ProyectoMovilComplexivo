@@ -46,11 +46,11 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtNombres"
+                    android:id="@+id/txtCedula"
                     android:layout_width="225dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
-                    android:text="Nombre Tutor Empresarial"
+                    android:text="Cedula Estudiante"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -58,58 +58,47 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/txtCargo"
+                android:id="@+id/txtNombre"
                 android:layout_width="341dp"
                 android:layout_height="34dp"
                 android:layout_below="@+id/linearLayout"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="7dp"
                 android:layout_toEndOf="@+id/iconImageViewEst"
-                android:text="Cargo"
+                android:text="Nombre"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/txtDepartamento"
+                android:id="@+id/txtApellido"
                 android:layout_width="341dp"
                 android:layout_height="34dp"
                 android:layout_below="@+id/linearLayout"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="165dp"
                 android:layout_toEndOf="@+id/iconImageViewEst"
-                android:text="Departamento"
+                android:text="Apellido"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/txtEstado"
+                android:id="@+id/txtCorreo"
                 android:layout_width="341dp"
                 android:layout_height="34dp"
                 android:layout_below="@+id/linearLayout"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="47dp"
                 android:layout_toEndOf="@+id/iconImageViewEst"
-                android:text="Estado"
+                android:text="Correo"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/txtNumeroContacto"
+                android:id="@+id/txtCarrera"
                 android:layout_width="341dp"
                 android:layout_height="34dp"
                 android:layout_below="@+id/linearLayout"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="84dp"
                 android:layout_toEndOf="@+id/iconImageViewEst"
-                android:text="Numero Convocatoria"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/txtTitulo"
-                android:layout_width="341dp"
-                android:layout_height="34dp"
-                android:layout_below="@+id/linearLayout"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="122dp"
-                android:layout_toEndOf="@+id/iconImageViewEst"
-                android:text="Titulo"
+                android:text="Carrera"
                 android:textSize="18sp" />
 
 

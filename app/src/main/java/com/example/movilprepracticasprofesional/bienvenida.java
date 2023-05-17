@@ -58,7 +58,7 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
                 break;
 
             case R.id.nav_convocatoria:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TutEmpresarialFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EstudiantesAprobFragment()).commit();
                 Toast.makeText(this, Usuario.rol, Toast.LENGTH_SHORT).show();
                 break;
 

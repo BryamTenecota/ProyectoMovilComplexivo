@@ -12,6 +12,8 @@ public class Usuario {
     private String contrasenia;
     private String nombres;
     private String carrera;
+
+
     //Roles
     private List<Roles> roles;
     //Atributo statico para traer usuarios
@@ -21,6 +23,10 @@ public class Usuario {
 //        return BCrypt.checkpw(passwordIngresada, hashBCrypt);
 //    }
 
+
+    public TutorEmpresarial getTutorEmpresarial() {return tutorEmpresarial;}
+
+    public void setTutorEmpresarial(TutorEmpresarial tutorEmpresarial) {this.tutorEmpresarial = tutorEmpresarial;}
 
     public int getIdusuario() {
         return idusuario;

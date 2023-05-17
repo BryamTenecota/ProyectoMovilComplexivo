@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import java.util.List;
 
 import Servicios.Servicios;
-import modelos.Convocatorias;
+import modelos.EstudiantesAprob;
 import modelos.TutorEmpresarial;
 import modelos.Usuario;
 import retrofit2.Call;
@@ -20,12 +20,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class TutEmpresarialFragment extends Fragment {
+public class EstudiantesAprobFragment extends Fragment {
 
     private TextView mjsonText;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_tutempresarial, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_estudiantesaprob, container, false);
         mjsonText = rootView.findViewById(R.id.jsonText);
         MostrarJson();
 
@@ -34,29 +34,29 @@ public class TutEmpresarialFragment extends Fragment {
 
     private void  MostrarJson() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.158:8080/api/tutorEmp/")
+                .baseUrl("http://192.168.0.158:8080/api/estudiantepracticante/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         Servicios servie = retrofit.create(Servicios.class);
-        Call<List<TutorEmpresarial>> call = servie.getTutorEmpresarialA();
-        call.enqueue(new Callback<List<TutorEmpresarial>>() {
+        Call<List<EstudiantesAprob>> call = servie.getEstudianteAprob();
+        call.enqueue(new Callback<List<EstudiantesAprob>>() {
 
             @Override
-            public void onResponse(Call<List<TutorEmpresarial>> call, Response<List<TutorEmpresarial>> response) {
+            public void onResponse(Call<List<EstudiantesAprob>> call, Response<List<EstudiantesAprob>> response) {
                 if (!response.isSuccessful()) {
                     mjsonText.setText("codigo: " + response.code());
                     return;
                 }
-                List<TutorEmpresarial> list = response.body();
-                for (TutorEmpresarial tutorEmpresarial : list) {
+                List<EstudiantesAprob> list = response.body();
+                for (EstudiantesAprob estudiantesAprob : list) {
                     String content = "";
-                        //content += "nombre: " + tutorEmpresarial.getNombres() + "\n";
-                        content += "cargo: " + tutorEmpresarial.getCargo() + "\n";
-                        content += "departamento: " + tutorEmpresarial.getDepartamento() + "\n";
-                        content += "estado: " + tutorEmpresarial.isEstado() + "\n";
-                        content += "numero contacto: " + tutorEmpresarial.getNumerocontacto() + "\n";
-                        content += "titulo: " + tutorEmpresarial.getTitulo() + "\n";
+                        content += "nombre: " + estudiantesAprob.getCedula() + "\n";
+                        content += "cargo: " + estudiantesAprob.getNombre() + "\n";
+                        content += "departamento: " + estudiantesAprob.getApellido() + "\n";
+                        content += "estado: " + estudiantesAprob.getCorreo() + "\n";
+                        content += "numero contacto: " + estudiantesAprob.getCarrera() + "\n";
+
 
                         mjsonText.append(content);
 
@@ -64,7 +64,7 @@ public class TutEmpresarialFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<TutorEmpresarial>> call, Throwable t) {
+            public void onFailure(Call<List<EstudiantesAprob>> call, Throwable t) {
                 mjsonText.setText(t.getMessage());
             }
         });

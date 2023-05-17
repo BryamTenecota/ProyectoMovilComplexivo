@@ -7,6 +7,7 @@ import java.util.List;
 
 import modelos.Convocatorias;
 import modelos.Empresa;
+import modelos.EstudiantesAprob;
 import modelos.PersonaEmpresa;
 import modelos.TutorEmpresarial;
 import modelos.Usuario;
@@ -26,4 +27,10 @@ public interface Servicios {
 
     @GET("all")
     Call<List<Usuario>> getUsuarios();
+
+    @GET("listarAprob")
+    Call<List<EstudiantesAprob>> getEstudianteAprob();
+
+    @GET("datos")
+    Call<List<TutorEmpresarial>> getTutorEmpresarialA();
 }
