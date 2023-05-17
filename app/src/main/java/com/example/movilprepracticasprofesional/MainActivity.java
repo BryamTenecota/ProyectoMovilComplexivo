@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         if (rol.equals("ROLE_TUTORACADEMICO")) {
                             sesionIniciada = true;
-
+                            idus = id;
                             //  Toast.makeText(MainActivity.this, "Entrastes como Tutor Empresarial", Toast.LENGTH_SHORT).show();
 
                         }
