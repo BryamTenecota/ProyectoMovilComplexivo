@@ -1,24 +1,22 @@
 package com.example.movilprepracticasprofesional;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.List;
 
 import Servicios.Servicios;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import modelos.Roles;
+import modelos.UserSingleton;
 import modelos.Usuario;
+import modelos.bienvenida;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView txtUser;
     private TextView txtPasword;
+
+    int idus = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,17 +62,21 @@ public class MainActivity extends AppCompatActivity {
                 }
                 List<Usuario> list= response.body();
                 boolean sesionIniciada = false;
-
+                int id = 0;
                 for (Usuario user: list){
                     String ps="";
                     String us="";
                     String rol="";
                     us +=user.getCorreo();
                     ps +=user.getContrasenia();
-                    //String encryptedPassword = ps;
-                    //String plainPassword = txtPasword.getText().toString();
-                    //boolean passwordMatch = BCrypt.verifyer().verify(plainPassword.toCharArray(), encryptedPassword).verified;
-                    if(txtUser.getText().toString().equals(us) /*&& passwordMatch*/){
+                    id = user.getIdUsuario();
+                     // Reemplaza esto con la id capturada
+
+                    String encryptedPassword = ps;
+                    String plainPassword = txtPasword.getText().toString();
+                    boolean passwordMatch = BCrypt.verifyer().verify(plainPassword.toCharArray(), encryptedPassword).verified;
+                    if(txtUser.getText().toString().equals(us) && passwordMatch){
+
                         for(Roles roles: user.getRoles()){
                             rol = roles.getRolnombre();
                             if(rol.equals("ROLE_ESTUDIANTE")){
@@ -81,23 +85,25 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(vntmenustudiante);
                                 Usuario.rol=rol;
                                 Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
-
                             }
 
                             if(rol.equals("ROLE_TUTORACADEMICO")){
                                 sesionIniciada = true;
-                                Intent vntmenustudiante=new Intent(MainActivity.this,bienvenida.class);
+                                Intent vntmenustudiante=new Intent(MainActivity.this, bienvenida.class);
                                 startActivity(vntmenustudiante);
                                 Usuario.rol=rol;
                                 Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
 
                             }
                             if(rol.equals("ROLE_TUTOREMPRESARIAL")){
+                                idus = id;
+                                UserSingleton.setIdUsuario(idus);
                                 sesionIniciada = true;
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenida.class);
                                 startActivity(vntmenustudiante);
                                 Usuario.rol=rol;
                                 Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "ID de Usuario: " + idus, Toast.LENGTH_SHORT).show();
 
                             }
                             if(rol.equals("ROLE_CORDINADOR")){

@@ -1,25 +1,18 @@
 package modelos;
 
 public class Empresa {
-//    private int userId;
-//    private int id;
-//    private String title;
-//    private String body;
-
-    private String rucEmpresa;
+    private int idempresa;
     private String nombreEmpresa;
     private String numeroTelefono;
     private String correo;
+    private String descripcion;
 
-    private String direccion;
-
-
-    public String getRucEmpresa() {
-        return rucEmpresa;
+    public int getIdempresa() {
+        return idempresa;
     }
 
-    public void setRucEmpresa(String rucEmpresa) {
-        this.rucEmpresa = rucEmpresa;
+    public void setIdempresa(int idempresa) {
+        this.idempresa = idempresa;
     }
 
     public String getNombreEmpresa() {
@@ -46,11 +39,11 @@ public class Empresa {
         this.correo = correo;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

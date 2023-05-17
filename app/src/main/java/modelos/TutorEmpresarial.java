@@ -22,8 +22,12 @@ public class TutorEmpresarial {
         return usuario.getNombres();
     }
 
-    public String getCargo() {
-        return cargo;
+public class TutorEmpresarial {
+
+    private List<Empresa> empresas;
+
+    public List<Empresa> getEmpresas() {
+        return empresas;
     }
 
     public void setCargo(String cargo) {
@@ -76,6 +80,8 @@ public class TutorEmpresarial {
 
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
+    public void setEmpresas(List<Empresa> empresas) {
+        this.empresas = empresas;
     }
 
     public List<Usuario> getUsuarios() {  // Corrección: Getter para la lista de usuarios

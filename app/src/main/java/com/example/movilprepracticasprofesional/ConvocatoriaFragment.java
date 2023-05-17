@@ -12,8 +12,10 @@ import android.widget.TextView;
 import java.util.List;
 
 import Servicios.Servicios;
+import modelos.Convenio;
+import modelos.DetalleConvenio;
+
 import modelos.Empresa;
-import modelos.TutorEmpresarial;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,10 +23,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class ConvocatoriaFragment extends Fragment {
-
-
-
+public class  ConvocatoriaFragment extends Fragment {
     private TextView mjsonText;
     /*@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,70 +37,38 @@ public class ConvocatoriaFragment extends Fragment {
 
     private void  MostrarJson(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.158:8080/api/tutorEmp/")
+                .baseUrl("http://192.168.18.39:8080/api/detalleConvenio/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         Servicios servie= retrofit.create(Servicios.class);
-        Call<List<TutorEmpresarial>> call= servie.getTutorEmpresarial();
-
-        call.enqueue(new Callback<List<TutorEmpresarial>>() {
+        Call <List<DetalleConvenio>> call= servie.getDetalleConvenio();
+        call.enqueue(new Callback<List<DetalleConvenio>>() {
             @Override
-            public void onResponse(Call<List<TutorEmpresarial>> call, Response<List<TutorEmpresarial>> response) {
+            public void onResponse(Call<List<DetalleConvenio>> call, Response<List<DetalleConvenio>> response) {
                 if(!response.isSuccessful()){
-                    mjsonText.setText("Codigo: "+response.code());
+                    mjsonText.setText("codigo: "+response.code());
                     return;
                 }
-                List<TutorEmpresarial> lista= response.body();
-                for(TutorEmpresarial tutorEmpresarial: lista){
-                    String content="";
-                    //content+="Nombre Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_nombre()+"\n";
-                    //content+="Apellido Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_apellido()+"\n";
-                    content+="Empresa: "+tutorEmpresarial.getEmpresa().getNombreEmpresa()+"\n";
-                    content+="Cargo: "+tutorEmpresarial.getCargo()+"\n";
+                List<DetalleConvenio> list= response.body();
+                for (DetalleConvenio detalleConvenio: list){
+                    String content= "";
+                    content +="Nombre Carrera: "+detalleConvenio.getNombre_carrera()+"\n";
+                    for (Convenio convenio : detalleConvenio.getConvenio()) {
+                        content += "Numero de Convenio: " + convenio.getNumero_convenio() + "\n";
+                    }
+
+
                     mjsonText.append(content);
+
                 }
             }
 
             @Override
-            public void onFailure(Call<List<TutorEmpresarial>> call, Throwable t) {
+            public void onFailure(Call<List<DetalleConvenio>> call, Throwable t) {
                 mjsonText.setText(t.getMessage());
             }
-
         });
     }
-//    private void  MostrarJson(){
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl("http://192.168.1.110:8080/api/tutorEmp/")
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//
-//        Servicios servie= retrofit.create(Servicios.class);
-//        Call<List<TutorEmpresarial>> call= servie.getTutorEmpresarial();
-//
-//        call.enqueue(new Callback<List<TutorEmpresarial>>() {
-//            @Override
-//            public void onResponse(Call<List<TutorEmpresarial>> call, Response<List<TutorEmpresarial>> response) {
-//                if(!response.isSuccessful()){
-//                    mjsonText.setText("Codigo: "+response.code());
-//                    return;
-//                }
-//                List<TutorEmpresarial> lista= response.body();
-//                for(TutorEmpresarial tutorEmpresarial: lista){
-//                    String content="";
-//                    content+="Nombre Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_nombre()+"\n";
-//                    content+="Apellido Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_apellido()+"\n";
-//                    content+="Empresa: "+tutorEmpresarial.getEmpresa().getNombreEmpresa()+"\n";
-//                    content+="Cargo: "+tutorEmpresarial.getCargo()+"\n";
-//                    mjsonText.append(content);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<TutorEmpresarial>> call, Throwable t) {
-//                mjsonText.setText(t.getMessage());
-//            }
-//
-//        });
-//    }
-}
+    }
+
