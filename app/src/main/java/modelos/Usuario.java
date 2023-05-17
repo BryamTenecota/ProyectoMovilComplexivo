@@ -13,10 +13,8 @@ public class Usuario {
     private String contrasenia;
     private String nombres;
     private String carrera;
-
-
-
     private String apellidos;
+
     //Roles
     private List<Roles> roles;
     //Atributo statico para traer usuarios
@@ -27,12 +25,14 @@ public class Usuario {
 //    }
 
 
-    public TutorEmpresarial getTutorEmpresarial() {return tutorEmpresarial;}
-
-    public void setTutorEmpresarial(TutorEmpresarial tutorEmpresarial) {this.tutorEmpresarial = tutorEmpresarial;}
-
     public int getIdusuario() {
         return idusuario;
+    }
+
+    public void setIdusuario(int idusuario) {
+        this.idusuario = idusuario;
+    }
+
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -57,14 +57,6 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getCarrera() {
-        return carrera;
-    }
-
-    public void setCarrera(String carrera) {
-        this.carrera = carrera;
-    }
-
     public String getContrasenia() {
         return contrasenia;
     }
@@ -79,6 +71,14 @@ public class Usuario {
 
     public void setNombres(String nombres) {
         this.nombres = nombres;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
     }
 
     public String getApellidos() {
@@ -96,6 +96,5 @@ public class Usuario {
     public void setRoles(List<Roles> roles) {
         this.roles = roles;
     }
-
 
 }

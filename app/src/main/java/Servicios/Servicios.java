@@ -5,7 +5,6 @@ import java.util.List;
 
 import modelos.Convocatorias;
 import modelos.Empresa;
-import modelos.EstudiantesAprob;
 import modelos.PersonaEmpresa;
 import modelos.Convenio;
 import modelos.DetalleConvenio;
@@ -36,20 +35,21 @@ public interface Servicios {
 
     @GET("listasoltutoaceptadas/{idUsuario}")
     Call<List<Object[]>> getSolporTutoAceptadas(@Path("idUsuario") int idUsuario);
+
     @GET("listar")
     Call<List<TutorEmpresarial>> getTutorEmpresarial();
 
     @GET("listar")
     Call<List<Convocatorias>> getConvocatorias();
+
     @GET("listartuto/{idUsuario}")
     Call<List<Object[]>> getUsuariosPorTutorEmpresarial(@Path("idUsuario") int idUsuario);
 
     @GET("all")
     Call<List<Usuario>> getUsuarios();
 
-    @GET("listarAprob")
-    Call<List<EstudiantesAprob>> getEstudianteAprob();
-
     @GET("datos")
-    Call<List<TutorEmpresarial>> getTutorEmpresarialA();
+    Call<List<Object[]>> getInfoTutorEmpresarial();
+
+
 }

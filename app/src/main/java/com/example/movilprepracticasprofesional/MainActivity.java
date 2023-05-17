@@ -72,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
                     id = user.getIdUsuario();
                      // Reemplaza esto con la id capturada
 
-                    String encryptedPassword = ps;
-                    String plainPassword = txtPasword.getText().toString();
-                    boolean passwordMatch = BCrypt.verifyer().verify(plainPassword.toCharArray(), encryptedPassword).verified;
-                    if(txtUser.getText().toString().equals(us) && passwordMatch){
+                    //String encryptedPassword = ps;
+                    //String plainPassword = txtPasword.getText().toString();
+                    //boolean passwordMatch = BCrypt.verifyer().verify(plainPassword.toCharArray(), encryptedPassword).verified;
+                    if(txtUser.getText().toString().equals(us) /*&& passwordMatch*/){
 
                         for(Roles roles: user.getRoles()){
                             rol = roles.getRolnombre();
@@ -114,11 +114,13 @@ public class MainActivity extends AppCompatActivity {
 
                             }
                             if(rol.equals("ROLE_RESPONSABLEPP")){
+                                idus = id;
+                                UserSingleton.setIdUsuario(idus);
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenida.class);
                                 startActivity(vntmenustudiante);
                                 Usuario.rol=rol;
                                 Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
-
+                                Toast.makeText(MainActivity.this, "ID de Usuario: " + idus, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

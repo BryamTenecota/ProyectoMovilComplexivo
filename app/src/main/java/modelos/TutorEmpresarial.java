@@ -4,7 +4,7 @@ import java.util.List;
 
 public class TutorEmpresarial {
 
-    private  String nombres;
+    private String nombres;
     private String cargo;
     private String departamento;
     private boolean estado;
@@ -14,24 +14,9 @@ public class TutorEmpresarial {
     private Empresa empresa;
     private List<Usuario> usuarios;  // Corrección: Lista de usuarios
 
-    public Usuario getUsuario() {return usuario;}
 
-    public void setUsuario(Usuario usuario) {this.usuario = usuario;}
-
-    public String getNombresUsuario() {
-        return usuario.getNombres();
-    }
-
-public class TutorEmpresarial {
-
-    private List<Empresa> empresas;
-
-    public List<Empresa> getEmpresas() {
-        return empresas;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public List<Usuario> getUsuarios() {  // Corrección: Getter para la lista de usuarios
+        return usuarios;
     }
 
     public String getNombres() {
@@ -40,6 +25,14 @@ public class TutorEmpresarial {
 
     public void setNombres(String nombres) {
         this.nombres = nombres;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
     public String getDepartamento() {
@@ -74,21 +67,23 @@ public class TutorEmpresarial {
         this.titulo = titulo;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public Empresa getEmpresa() {
         return empresa;
     }
 
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
-    public void setEmpresas(List<Empresa> empresas) {
-        this.empresas = empresas;
     }
 
-    public List<Usuario> getUsuarios() {  // Corrección: Getter para la lista de usuarios
-        return usuarios;
-    }
-
-    public void setUsuarios(List<Usuario> usuarios) {  // Corrección: Setter para la lista de usuarios
+    public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
 }
