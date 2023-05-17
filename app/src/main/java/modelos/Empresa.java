@@ -2,22 +2,10 @@ package modelos;
 
 public class Empresa {
     private int idempresa;
-    private String nombreempresa;
-    private String numerotelefono;
+    private String nombreEmpresa;
+    private String numeroTelefono;
     private String correo;
     private String descripcion;
-
-
-
-    public Empresa(int idempresa, String nombreempresa, String numerotelefono, String correo, String descripcion) {
-        this.idempresa = idempresa;
-        this.nombreempresa = nombreempresa;
-        this.numerotelefono = numerotelefono;
-        this.correo = correo;
-        this.descripcion = descripcion;
-    }
-
-
 
     public int getIdempresa() {
         return idempresa;
@@ -27,20 +15,20 @@ public class Empresa {
         this.idempresa = idempresa;
     }
 
-    public String getNombreempresa() {
-        return nombreempresa;
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
     }
 
-    public void setNombreempresa(String nombreempresa) {
-        this.nombreempresa = nombreempresa;
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
     }
 
-    public String getNumerotelefono() {
-        return numerotelefono;
+    public String getNumeroTelefono() {
+        return numeroTelefono;
     }
 
-    public void setNumerotelefono(String numerotelefono) {
-        this.numerotelefono = numerotelefono;
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
     }
 
     public String getCorreo() {

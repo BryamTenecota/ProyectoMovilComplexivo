@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,67 +23,25 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class RespuestaFragment extends Fragment {
-    Adaptadoremp adaptadoremp;
-    RecyclerView recyclerView;
-    private TextView mjsonText;
-    ArrayList<Empresa> empresaArrayList;
-    List<Empresa> empresa;
+
+    private ListView mjsonListView;
+    private List<Empresa> mEmpresaList;
+    private ArrayAdapter<String> mAdapter;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_respuesta, container, false);
-        recyclerView = view.findViewById(R.id.listRecyclerviewemp);
-        empresaArrayList = new ArrayList<>();
-        //cargarmos la lista
 
-        cargarlista();
+        mjsonListView = view.findViewById(R.id.jsonListView);
+        MostrarJson();
+
         return view;
     }
 
-    public void init() {
+   private void  MostrarJson(){
 
-        empresa = new ArrayList<>();
-        empresa.add(new Empresa(9, "ASTUDILLO TOCACHI MANUEL EDUARDO", "TECNOLOGÍA SUPERIOR EN DESARROLLO DE SOFTWARE", "eduardoeat10@gmail.com", ""));
-
-        //ListAdapter listAdapter = new ListAdapter(practicantes, );
-
-    }
-
-    public void cargarlista() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/empresa/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        Servicios servie = retrofit.create(Servicios.class);
-        Call<List<Empresa>> call = servie.getEmpresa();
-        call.enqueue(new Callback<List<Empresa>>() {
-            @Override
-            public void onResponse(Call<List<Empresa>> call, Response<List<Empresa>> response) {
-                if(response.isSuccessful()){
-                    empresa = response.body();
-                    adaptadoremp = new Adaptadoremp( empresaArrayList, getActivity().getApplicationContext());
-                    recyclerView.setAdapter(adaptadoremp);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Empresa>> call, Throwable t) {
-                // Manejar el error en caso de fallo de la llamada
-            }
-        });
-    }
-}
-
-   /* public void mostrarData(){
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adaptadoremp = new Adaptadoremp(empresaArrayList, getContext());
-        recyclerView.setAdapter(adaptadoremp);
-    }*/
-
-
-
-
-   /* private void  MostrarJson(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.18.39:8080/api/empresa/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -96,27 +54,31 @@ public class RespuestaFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Empresa>> call, Response<List<Empresa>> response) {
                 if(!response.isSuccessful()){
-                    mjsonText.setText("Codigo: "+response.code());
+
                     return;
                 }
-                List<Empresa> lista= response.body();
-                for(Empresa empresa: lista){
+                mEmpresaList = response.body();
+                List<String> dataList = new ArrayList<>();
+                for(Empresa empresa: mEmpresaList){
                     String content="";
-                    content+="Idnpresa: "+empresa.getIdempresa()+"\n";
-                    content+="Nombre: "+empresa.getNombreempresa()+"\n";
-                    content+="Telefono: "+empresa.getNumerotelefono()+"\n";
+                    content+="Nombre: "+empresa.getNombreEmpresa()+"\n";
+                    content+="Telefono: "+empresa.getNumeroTelefono()+"\n";
+                    content+="Correo: "+empresa.getCorreo()+"\n";
                     content+="Descripcion: "+empresa.getDescripcion()+"\n";
-                    content+="Descripcion: "+empresa.getDescripcion()+"\n";
-                    mjsonText.append(content);
+
+                    dataList.add(content);
                 }
+
+                mAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, dataList);
+                mjsonListView.setAdapter(mAdapter);
             }
 
             @Override
             public void onFailure(Call<List<Empresa>> call, Throwable t) {
-                mjsonText.setText(t.getMessage());
+
             }
 
         });
     }
 
-    }*/
+    }
