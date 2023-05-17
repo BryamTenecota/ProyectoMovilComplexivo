@@ -13,19 +13,20 @@ import java.util.List;
 import Servicios.Servicios;
 import modelos.Convocatorias;
 import modelos.TutorEmpresarial;
+import modelos.Usuario;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ListTutorEmpresarial extends Fragment {
+public class TutEmpresarialFragment extends Fragment {
 
     private TextView mjsonText;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.list_tutempresarial, container, false);
-
+        View rootView = inflater.inflate(R.layout.fragment_convocatoria, container, false);
+        //rootView = inflater.inflate(R.layout.fragment_convocatoria, container, false);
         mjsonText = rootView.findViewById(R.id.jsonText);
         MostrarJson();
 
@@ -34,7 +35,7 @@ public class ListTutorEmpresarial extends Fragment {
 
     private void  MostrarJson() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080//api/convocatorias/")
+                .baseUrl("http://192.168.0.158:8080/api/convocatorias/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -51,6 +52,7 @@ public class ListTutorEmpresarial extends Fragment {
                 List<TutorEmpresarial> list = response.body();
                 for (TutorEmpresarial tutorEmpresarial : list) {
                     String content = "";
+                    content += "nompre: " + tutorEmpresarial.getUsuario().getNombres() + "\n";
                     content += "cargo: " + tutorEmpresarial.getCargo() + "\n";
                     content += "usuario: " + tutorEmpresarial.getUsuario() + "\n";
                     content += "empresa: " + tutorEmpresarial.getEmpresa() + "\n";

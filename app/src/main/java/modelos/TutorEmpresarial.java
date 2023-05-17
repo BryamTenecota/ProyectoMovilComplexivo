@@ -1,9 +1,10 @@
 package modelos;
 
+import java.util.List;
+
 public class TutorEmpresarial {
     
     private String cargo;
-
     private Usuario usuario;
     private Empresa empresa;
 
@@ -30,4 +31,11 @@ public class TutorEmpresarial {
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
+
+    List<Object[]> usuarios;
+
+    public List<Object[]> getUsuarios() {
+        return usuarios;
+    }
+
 }

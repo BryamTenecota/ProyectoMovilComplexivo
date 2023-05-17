@@ -26,15 +26,15 @@ public class ConvocatoriaFragment extends Fragment {
 
 
     private TextView mjsonText;
-    @Override
+    /*@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_convocatoria, container, false);
 
         mjsonText = rootView.findViewById(R.id.jsonText);
-//        MostrarJson();
+        MostrarJson();
 
         return rootView;
-    }
+    }*/
 
     private void  MostrarJson(){
         Retrofit retrofit = new Retrofit.Builder()
@@ -55,8 +55,8 @@ public class ConvocatoriaFragment extends Fragment {
                 List<TutorEmpresarial> lista= response.body();
                 for(TutorEmpresarial tutorEmpresarial: lista){
                     String content="";
-                    content+="Nombre Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_nombre()+"\n";
-                    content+="Apellido Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_apellido()+"\n";
+                    //content+="Nombre Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_nombre()+"\n";
+                    //content+="Apellido Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_apellido()+"\n";
                     content+="Empresa: "+tutorEmpresarial.getEmpresa().getNombreEmpresa()+"\n";
                     content+="Cargo: "+tutorEmpresarial.getCargo()+"\n";
                     mjsonText.append(content);

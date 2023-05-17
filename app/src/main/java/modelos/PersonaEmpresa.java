@@ -17,7 +17,6 @@ public class PersonaEmpresa {
         return primer_apellido;
     }
 
-    public void setPrimer_apellido(String primer_apellido) {
-        this.primer_apellido = primer_apellido;
-    }
+    public void setPrimer_apellido(String primer_apellido) {this.primer_apellido = primer_apellido;}
+
 }

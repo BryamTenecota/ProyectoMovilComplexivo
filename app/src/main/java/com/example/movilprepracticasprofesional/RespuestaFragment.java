@@ -28,14 +28,14 @@ public class RespuestaFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_respuesta, container, false);
 
         mjsonText = rootView.findViewById(R.id.jsonText);
-//        MostrarJson();
+        MostrarJson();
 
         return rootView;
     }
 
     private void  MostrarJson(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/empresa/")
+                .baseUrl("http://192.168.0.158:8080/api/empresa/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -58,7 +58,9 @@ public class RespuestaFragment extends Fragment {
                     content+="Direccion: "+empresa.getDireccion()+"\n";
                     content+="Correo: "+empresa.getCorreo()+"\n";
                     mjsonText.append(content);
+
                 }
+
             }
 
             @Override

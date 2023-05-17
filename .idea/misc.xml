@@ -25,19 +25,13 @@
         <entry key="..\:/Users/Edison/Documents/Deberes/Complexivo/ProyectoMovilComplexivo/app/src/main/res/layout/list_estudiantes.xml" value="0.33240740740740743" />
         <entry key="..\:/Users/Edison/Documents/Deberes/Complexivo/ProyectoMovilComplexivo/app/src/main/res/layout/list_tutempresarial.xml" value="0.33240740740740743" />
         <entry key="..\:/Users/Edison/Documents/Deberes/Complexivo/ProyectoMovilComplexivo/app/src/main/res/layout/nav_header.xml" value="0.26296296296296295" />
-        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/activity_bienvenida.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_home.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_notificacion.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/list_docente.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/list_element.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/nav_header.xml" value="0.25" />
-        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/menu/nav_menu.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/Edison/Documents/Deberes/Complexivo/ProyectoMovilComplexivo/app/src/main/res/layout/nav_headercordinador.xml" value="0.17407407407407408" />
+        <entry key="..\:/Users/Edison/Documents/Deberes/Complexivo/ProyectoMovilComplexivo/app/src/main/res/layout/nav_headerdocentes.xml" value="0.17407407407407408" />
+        <entry key="..\:/Users/Edison/Documents/Deberes/Complexivo/ProyectoMovilComplexivo/app/src/main/res/layout/nav_headerempresa.xml" value="0.17407407407407408" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

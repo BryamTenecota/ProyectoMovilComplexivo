@@ -24,9 +24,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ListaConvocatorias extends Fragment {
+public class ConvocatoriasFragment extends Fragment {
     private TextView mjsonText;
-    @Override
+    /*@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_convocatoria, container, false);
 
@@ -35,11 +35,11 @@ public class ListaConvocatorias extends Fragment {
         MostrarJson();
 
         return rootView;
-    }
+    }*/
 
     private void  MostrarJson() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080//api/convocatorias/")
+                .baseUrl("http://192.168.0.158:8080/api/convocatorias/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
