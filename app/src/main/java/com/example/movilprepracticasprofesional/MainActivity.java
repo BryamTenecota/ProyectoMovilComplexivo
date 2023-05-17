@@ -1,6 +1,4 @@
 package com.example.movilprepracticasprofesional;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
@@ -10,11 +8,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
@@ -23,7 +21,6 @@ import java.util.List;
 import Notificaciones.AlarmReceiver;
 import Notificaciones.AlarmReceiver2;
 import Servicios.Servicios;
-
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import modelos.Roles;
 import modelos.UserSingleton;
@@ -113,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     String us="";
                     String rol="";
                     String carrera="";
-                    int id = 0;
+
                     us +=user.getCorreo();
                     ps +=user.getContrasenia();
                     id = user.getIdUsuario();

@@ -13,14 +13,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.movilprepracticasprofesional.ConvocatoriaFragment;
+import com.example.movilprepracticasprofesional.FragmentAnexos;
+import com.example.movilprepracticasprofesional.FragmentConveniosDisponibles;
 import com.example.movilprepracticasprofesional.HomeFragment;
 import com.example.movilprepracticasprofesional.InfoFragment;
 import com.example.movilprepracticasprofesional.MainActivity;
-import com.example.movilprepracticasprofesional.NotificacionFragment;
-import com.example.movilprepracticasprofesional.PracticanteFragment;
 import com.example.movilprepracticasprofesional.R;
-import com.example.movilprepracticasprofesional.RespuestaFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class bienvenida extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{

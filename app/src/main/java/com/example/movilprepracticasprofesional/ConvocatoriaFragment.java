@@ -1,21 +1,18 @@
 package com.example.movilprepracticasprofesional;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import java.util.List;
 
 import Servicios.Servicios;
 import modelos.Convenio;
 import modelos.DetalleConvenio;
-
-import modelos.Empresa;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,7 +26,7 @@ public class  ConvocatoriaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_convocatoria, container, false);
 
-        mjsonText = rootView.findViewById(R.id.jsonText);
+        //mjsonText = rootView.findViewById(R.id.jsonText);
         MostrarJson();
 
         return rootView;
