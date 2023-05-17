@@ -3,7 +3,7 @@ package modelos;
 public class SolicitudPractica {
 
     private String fechaEnvioSolicitud;
-    private Integer numeroEstudiantes;
+    private int numeroEstudiantes;
     private String nombreSolicitud;
     private String fechaAceptacion;
 
@@ -17,11 +17,11 @@ public class SolicitudPractica {
         this.fechaEnvioSolicitud = fechaEnvioSolicitud;
     }
 
-    public Integer getNumeroEstudiantes() {
+    public int getNumeroEstudiantes() {
         return numeroEstudiantes;
     }
 
-    public void setNumeroEstudiantes(Integer numeroEstudiantes) {
+    public void setNumeroEstudiantes(int numeroEstudiantes) {
         this.numeroEstudiantes = numeroEstudiantes;
     }
 

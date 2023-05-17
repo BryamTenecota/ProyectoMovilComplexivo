@@ -4,11 +4,13 @@ import java.util.List;
 
 public class Usuario {
 
-    private int idusuario;
+    private int idUsuario;
     private String cedula;
     private String correo;
     private String contrasenia;
     private String nombres;
+
+    private String apellidos;
     //Roles
     private List<Roles> roles;
     //Atributo statico para traer usuarios
@@ -19,12 +21,12 @@ public class Usuario {
 //    }
 
 
-    public int getIdusuario() {
-        return idusuario;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdusuario(int idusuario) {
-        this.idusuario = idusuario;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getCedula() {
@@ -57,6 +59,14 @@ public class Usuario {
 
     public void setNombres(String nombres) {
         this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public List<Roles> getRoles() {

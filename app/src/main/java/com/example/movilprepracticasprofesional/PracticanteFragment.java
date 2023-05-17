@@ -6,16 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.viewmodel.CreationExtras;
 
 import java.util.List;
 
 import Servicios.Servicios;
-import modelos.Empresa;
-import modelos.Practica;
-import modelos.SolicitudPractica;
+import modelos.UserSingleton;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,115 +25,134 @@ public class PracticanteFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_practicante, container, false);
 
         mjsonText = rootView.findViewById(R.id.jsonText);
-        /*MostrarJson();*/
+        MostrarJson();
 
         return rootView;
     }
 
-    /*private void  MostrarJson(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/practica/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        Servicios servie= retrofit.create(Servicios.class);
-        Call<List<Practica>> call= servie.getPractica();
-
-        call.enqueue(new Callback<List<Practica>>() {
-            @Override
-            public void onResponse(Call<List<Practica>> call, Response<List<Practica>> response) {
-                if(!response.isSuccessful()){
-                    mjsonText.setText("Codigo: "+response.code());
-                    return;
-                }
-                List<Practica> lista= response.body();
-                for(Practica practica: lista){
-                    String content="";
-                    content+="Hora Inicio: "+practica.getHoraInicio()+"\n";
-                    content+="Hora Salida: "+practica.getHoraSalida()+"\n";
-
-                    mjsonText.append(content);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Practica>> call, Throwable t) {
-                mjsonText.setText(t.getMessage());
-            }
-
-        });*/
 
     /*private void  MostrarJson(){
+        int id = UserSingleton.getIdUsuario();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.18.39:8080/api/solicitudPractica/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         Servicios servie= retrofit.create(Servicios.class);
-        Call<List<SolicitudPractica>> call= servie.getSolicitudPractica();
+        Call<List<Object[]>> call= servie.getSolporTuto(id);
 
-        call.enqueue(new Callback<List<SolicitudPractica>>() {
+        call.enqueue(new Callback<List<Object[]>>() {
             @Override
-            public void onResponse(Call<List<SolicitudPractica>> call, Response<List<SolicitudPractica>> response) {
+            public void onResponse(Call<List<Object[]>> call, Response<List<Object[]>> response) {
                 if(!response.isSuccessful()){
                     mjsonText.setText("Codigo: "+response.code());
                     return;
                 }
-                List<SolicitudPractica> lista= response.body();
-                for(SolicitudPractica solicitudPractica: lista){
-                    if (!solicitudPractica.isEstadoSolicitud()) {
+                List<Object[]> lista= response.body();
+                for(Object[] object: lista){
                         String content = "";
-                        content += "Nombre Solicitud: " + solicitudPractica.getNombreSolicitud() + "\n";
-                        content += "Numero de Estudiantes: " + solicitudPractica.getNumeroEstudiantes() + "\n";
-                        content += "Fecha de Envio: " + solicitudPractica.getFechaEnvioSolicitud() + "\n";
+                        String nombresol = (String) object[0];
+                        String fechae = (String) object[1];
+                        String fechaa = (String) object[2];
+
+                        content += "Nombre Solicitud: " + nombresol + "\n";
+                        content += "Fecha de Envio: " + fechae + "\n";
+                        content += "Fecha de Aceptación: " + fechaa + "\n";
 
                         mjsonText.append(content);
                     }
-                }
+
             }
 
             @Override
-            public void onFailure(Call<List<SolicitudPractica>> call, Throwable t) {
+            public void onFailure(Call<List<Object[]>> call, Throwable t) {
                 mjsonText.setText(t.getMessage());
             }
 
         });
     }*/
 
-    /*private void  MostrarJson(){
+    private void  MostrarJson(){
+        int id = UserSingleton.getIdUsuario();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.18.39:8080/api/solicitudPractica/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         Servicios servie= retrofit.create(Servicios.class);
-        Call<List<SolicitudPractica>> call= servie.getSolicitudPractica();
+        Call<List<Object[]>> call= servie.getSolporTutoAceptadas(id);
 
-        call.enqueue(new Callback<List<SolicitudPractica>>() {
+        call.enqueue(new Callback<List<Object[]>>() {
             @Override
-            public void onResponse(Call<List<SolicitudPractica>> call, Response<List<SolicitudPractica>> response) {
+            public void onResponse(Call<List<Object[]>> call, Response<List<Object[]>> response) {
                 if(!response.isSuccessful()){
                     mjsonText.setText("Codigo: "+response.code());
                     return;
                 }
-                List<SolicitudPractica> lista= response.body();
-                for(SolicitudPractica solicitudPractica: lista){
-                    if (solicitudPractica.isEstadoSolicitud()) {
-                        String content = "";
-                        content += "Nombre Solicitud: " + solicitudPractica.getNombreSolicitud() + "\n";
-                        content += "Numero de Estudiantes: " + solicitudPractica.getNumeroEstudiantes() + "\n";
-                        content += "Fecha de Aceptacion: " + solicitudPractica.getFechaAceptacion() + "\n";
+                List<Object[]> lista= response.body();
+                for(Object[] object: lista){
+                    String content = "";
+                    String nombresol = (String) object[0];
+                    String fechae = (String) object[1];
+                    String fechaa = (String) object[2];
 
-                        mjsonText.append(content);
-                    }
+                    content += "Nombre Solicitud: " + nombresol + "\n";
+                    content += "Fecha de Envio: " + fechae + "\n";
+                    content += "Fecha de Aceptación: " + fechaa + "\n";
+
+                    mjsonText.append(content);
                 }
             }
-
             @Override
-            public void onFailure(Call<List<SolicitudPractica>> call, Throwable t) {
+            public void onFailure(Call<List<Object[]>> call, Throwable t) {
                 mjsonText.setText(t.getMessage());
             }
 
         });
+    }
+
+    /*private void  MostrarJson(){
+
+
+        int id = UserSingleton.getIdUsuario();
+        Toast.makeText(getActivity(), "ID de Usuario: " + id, Toast.LENGTH_SHORT).show();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.18.39:8080/api/user/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        Servicios servie= retrofit.create(Servicios.class);
+        Call<List<Object[]>> call= servie.getUsuariosPorTutorEmpresarial(id);
+
+        call.enqueue(new Callback<List<Object[]>>() {
+            @Override
+            public void onResponse(Call<List<Object[]>> call, Response<List<Object[]>> response) {
+                if(!response.isSuccessful()){
+                    mjsonText.setText("Codigo: "+response.code());
+                    return;
+                }
+                List<Object[]> lista = response.body();
+                for (Object[] object : lista) {
+                    String content = "";
+                    String nombre = (String) object[0];
+                    String apellido = (String) object[1];
+                    String cedula = (String) object[2];
+
+                    content += "Nombre: " + nombre + "\n";
+                    content += "Apellido: " + apellido + "\n";
+                    content += "Cédula: " + cedula + "\n";
+
+                    mjsonText.append(content);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Object[]>> call, Throwable t) {
+                mjsonText.setText(t.getMessage());
+            }
+
+        });
+
     }*/
 }

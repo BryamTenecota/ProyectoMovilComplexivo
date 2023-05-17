@@ -1,44 +1,46 @@
 package modelos;
 
-import java.util.List;
-
 public class Empresa {
-        private String nombreEmpresa;
-        private String rucEmpresa;
-        private String numeroTelefono;
-        private String direccion;
-        private String correo;
+    private int idempresa;
+    private String nombreempresa;
+    private String numerotelefono;
+    private String correo;
+    private String descripcion;
 
-        public String getNombreEmpresa() {
-            return nombreEmpresa;
-        }
 
-        public void setNombreEmpresa(String nombreEmpresa) {
-            this.nombreEmpresa = nombreEmpresa;
-        }
 
-    public String getRucEmpresa() {
-        return rucEmpresa;
+    public Empresa(int idempresa, String nombreempresa, String numerotelefono, String correo, String descripcion) {
+        this.idempresa = idempresa;
+        this.nombreempresa = nombreempresa;
+        this.numerotelefono = numerotelefono;
+        this.correo = correo;
+        this.descripcion = descripcion;
     }
 
-    public void setRucEmpresa(String rucEmpresa) {
-        this.rucEmpresa = rucEmpresa;
+
+
+    public int getIdempresa() {
+        return idempresa;
     }
 
-    public String getNumeroTelefono() {
-        return numeroTelefono;
+    public void setIdempresa(int idempresa) {
+        this.idempresa = idempresa;
     }
 
-    public void setNumeroTelefono(String numeroTelefono) {
-        this.numeroTelefono = numeroTelefono;
+    public String getNombreempresa() {
+        return nombreempresa;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public void setNombreempresa(String nombreempresa) {
+        this.nombreempresa = nombreempresa;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public String getNumerotelefono() {
+        return numerotelefono;
+    }
+
+    public void setNumerotelefono(String numerotelefono) {
+        this.numerotelefono = numerotelefono;
     }
 
     public String getCorreo() {
@@ -48,5 +50,12 @@ public class Empresa {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-}
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+}

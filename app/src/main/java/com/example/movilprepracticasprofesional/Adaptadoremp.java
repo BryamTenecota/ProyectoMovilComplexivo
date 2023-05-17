@@ -12,47 +12,51 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import modelos.Empresa;
+
 public class Adaptadoremp extends RecyclerView.Adapter<Adaptadoremp.ViewHolder> implements View.OnClickListener{
-    private ArrayList<ListElement> mData;
+    private ArrayList<Empresa> mData;
     private LayoutInflater mInflater;
     //listener
     private View.OnClickListener listener;
 
-    public Adaptadoremp(ArrayList<ListElement> itemList, Context context){
+    public Adaptadoremp(ArrayList<Empresa> itemList, Context context){
         this.mInflater=LayoutInflater.from(context);
         this.mData=itemList;
     }
 
     @NonNull
     @Override
-    public Adaptadoremp.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= mInflater.inflate(R.layout.list_empresa,parent,false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= mInflater.inflate(R.layout.list_elementemp,parent,false);
         view.setOnClickListener(this);
-        return new Adaptadoremp.ViewHolder(view);
+        return new ViewHolder(view);
     }
     public void setOnClickListener(View.OnClickListener listener){
         this.listener = listener;
     }
 
     @Override
-    public void onBindViewHolder(final Adaptadoremp.ViewHolder holder, int position) {
-        String titulo= mData.get(position).getTitle();
-        String mensaje= mData.get(position).getDescripcion();
-        String state= mData.get(position).getStatus();
-        int image= mData.get(position).getImagenid();
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        String nombreempresa = mData.get(position).getNombreempresa();
+        String numerotelefono = mData.get(position).getNumerotelefono();
+        String correo = mData.get(position).getCorreo();
+        String descripcion = mData.get(position).getDescripcion();
 
-       // holder.title.setText(titulo);
-      //  holder.descripcion.setText(mensaje);
-        holder.status.setText(state);
-        holder.iconImage.setImageResource(image);
+        holder.nombreempresa.setText(nombreempresa);
+        holder.numerotelefono.setText(numerotelefono);
+        holder.correo.setText(correo);
+        holder.descripcion.setText(descripcion);
     }
+
+
 
 
     @Override
     public int getItemCount() {
         return mData.size();
     }
-    public void SetItems(ArrayList<ListElement>items){ mData = items;}
+    public void SetItems(ArrayList<Empresa>items){ mData = items;}
 
     @Override
     public void onClick(View view) {
@@ -63,15 +67,18 @@ public class Adaptadoremp extends RecyclerView.Adapter<Adaptadoremp.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView iconImage;
-        TextView rucEmpresa, nombreEmpresa,status;
+        TextView nombreempresa,numerotelefono,correo,descripcion;
         public ViewHolder(View itemView){
             super(itemView);
             iconImage= itemView.findViewById(R.id.iconImageView);
-            rucEmpresa=itemView.findViewById(R.id.txtTitle);
-            nombreEmpresa=itemView.findViewById(R.id.txtDescripcion);
-            status=itemView.findViewById(R.id.txtStatus);
+            nombreempresa=itemView.findViewById(R.id.txtnombreempresa);
+            numerotelefono=itemView.findViewById(R.id.txtnumerotelefono);
+            correo=itemView.findViewById(R.id.txtcorreo);
+            descripcion=itemView.findViewById(R.id.txtdescripcioneemp);
+
         }
 
     }
+
 
 }

@@ -1,5 +1,11 @@
 package modelos;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,22 +13,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.movilprepracticasprofesional.ConvocatoriaFragment;
 import com.example.movilprepracticasprofesional.HomeFragment;
 import com.example.movilprepracticasprofesional.InfoFragment;
+import com.example.movilprepracticasprofesional.MainActivity;
 import com.example.movilprepracticasprofesional.NotificacionFragment;
 import com.example.movilprepracticasprofesional.PracticanteFragment;
 import com.example.movilprepracticasprofesional.R;
 import com.example.movilprepracticasprofesional.RespuestaFragment;
 import com.google.android.material.navigation.NavigationView;
-
-import modelos.Usuario;
 
 public class bienvenida extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -94,7 +93,7 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case R.id.nav_exit:
                 Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
-                Intent logout=new Intent(bienvenida.this,MainActivity.class);
+                Intent logout=new Intent(bienvenida.this, MainActivity.class);
                 startActivity(logout);
                 break;
         }

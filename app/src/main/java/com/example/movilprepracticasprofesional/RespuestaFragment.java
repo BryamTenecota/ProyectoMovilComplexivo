@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Servicios.Servicios;
@@ -21,18 +23,67 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class RespuestaFragment extends Fragment {
+    Adaptadoremp adaptadoremp;
+    RecyclerView recyclerView;
     private TextView mjsonText;
+    ArrayList<Empresa> empresaArrayList;
+    List<Empresa> empresa;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_respuesta, container, false);
+        View view = inflater.inflate(R.layout.fragment_respuesta, container, false);
+        recyclerView = view.findViewById(R.id.listRecyclerviewemp);
+        empresaArrayList = new ArrayList<>();
+        //cargarmos la lista
 
-        mjsonText = rootView.findViewById(R.id.jsonText);
-        MostrarJson();
-
-        return rootView;
+        cargarlista();
+        return view;
     }
 
-    private void  MostrarJson(){
+    public void init() {
+
+        empresa = new ArrayList<>();
+        empresa.add(new Empresa(9, "ASTUDILLO TOCACHI MANUEL EDUARDO", "TECNOLOGÍA SUPERIOR EN DESARROLLO DE SOFTWARE", "eduardoeat10@gmail.com", ""));
+
+        //ListAdapter listAdapter = new ListAdapter(practicantes, );
+
+    }
+
+    public void cargarlista() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.18.39:8080/api/empresa/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Servicios servie = retrofit.create(Servicios.class);
+        Call<List<Empresa>> call = servie.getEmpresa();
+        call.enqueue(new Callback<List<Empresa>>() {
+            @Override
+            public void onResponse(Call<List<Empresa>> call, Response<List<Empresa>> response) {
+                if(response.isSuccessful()){
+                    empresa = response.body();
+                    adaptadoremp = new Adaptadoremp( empresaArrayList, getActivity().getApplicationContext());
+                    recyclerView.setAdapter(adaptadoremp);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Empresa>> call, Throwable t) {
+                // Manejar el error en caso de fallo de la llamada
+            }
+        });
+    }
+}
+
+   /* public void mostrarData(){
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adaptadoremp = new Adaptadoremp(empresaArrayList, getContext());
+        recyclerView.setAdapter(adaptadoremp);
+    }*/
+
+
+
+
+   /* private void  MostrarJson(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.18.39:8080/api/empresa/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -51,11 +102,11 @@ public class RespuestaFragment extends Fragment {
                 List<Empresa> lista= response.body();
                 for(Empresa empresa: lista){
                     String content="";
-                    content+="Nombre: "+empresa.getNombreEmpresa()+"\n";
-                   content+="RUC: "+empresa.getRucEmpresa()+"\n";
-                    content+="Telefono: "+empresa.getNumeroTelefono()+"\n";
-                    content+="Direccion: "+empresa.getDireccion()+"\n";
-                    content+="Correo: "+empresa.getCorreo()+"\n";
+                    content+="Idnpresa: "+empresa.getIdempresa()+"\n";
+                    content+="Nombre: "+empresa.getNombreempresa()+"\n";
+                    content+="Telefono: "+empresa.getNumerotelefono()+"\n";
+                    content+="Descripcion: "+empresa.getDescripcion()+"\n";
+                    content+="Descripcion: "+empresa.getDescripcion()+"\n";
                     mjsonText.append(content);
                 }
             }
@@ -67,4 +118,5 @@ public class RespuestaFragment extends Fragment {
 
         });
     }
-    }
+
+    }*/
