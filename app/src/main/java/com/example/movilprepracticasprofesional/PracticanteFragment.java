@@ -82,7 +82,7 @@ public class PracticanteFragment extends Fragment {
                         itemnombre.setText("Nombres: " + nombre + "\n");
                         itemapellido.setText("Apellidos: " + apellido + "\n");
                         itemcedula.setText("Cédula: " + cedula + "\n");
-                        itemImage.setImageResource(R.drawable.notifications_nav); // Reemplaza "imagen" con el nombre de tu imagen
+                        itemImage.setImageResource(R.drawable.usere); // Reemplaza "imagen" con el nombre de tu imagen
 
                         return convertView;
                     }
