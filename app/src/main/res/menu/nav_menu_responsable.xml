@@ -11,29 +11,22 @@
          />
 
         <item
-            android:id="@+id/nav_convocatoria_disponible"
-            android:icon="@drawable/list_convenio"
-            android:title="Convenios Disponibles"
-            />
-        <item
-            android:id="@+id/nav_informacion"
-            android:icon="@drawable/informacion"
-            android:title="Informacion"
-            />
-        <item
-            android:id="@+id/nav_anexos"
-            android:icon="@drawable/list_convenio"
-            android:title="Anexos"
+            android:id="@+id/nav_tutores_empresariales"
+            android:icon="@drawable/person"
+            android:title="Tutores Empresariales"
             />
 
+        <item
+            android:id="@+id/nav_estudiantes_aprobados"
 
-
-
+            android:icon="@drawable/estudiantes_aprobados"
+            android:title="Estudiantes Aprobados"
+            />
 
         <item
-            android:id="@+id/nav_practicante"
-            android:icon="@drawable/quickreply_nav"
-            android:title="Practicante"
+            android:id="@+id/nav_convocatoria"
+            android:icon="@drawable/convocatoria"
+            android:title="Convocatorias"
             />
 
     </group>
@@ -46,6 +39,7 @@
                 android:id="@+id/nav_exit"
                 android:icon="@drawable/exit_nav"
                 android:title="Logout"
-                />        </menu>
+                />
+        </menu>
     </item>
 </menu>

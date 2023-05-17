@@ -1,9 +1,8 @@
-package modelos;
+package com.example.movilprepracticasprofesional;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,35 +12,26 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.movilprepracticasprofesional.ConvocatoriaFragment;
-import com.example.movilprepracticasprofesional.HomeFragment;
-import com.example.movilprepracticasprofesional.InfoFragment;
-import com.example.movilprepracticasprofesional.MainActivity;
-import com.example.movilprepracticasprofesional.NotificacionFragment;
-import com.example.movilprepracticasprofesional.PracticanteFragment;
-import com.example.movilprepracticasprofesional.R;
-import com.example.movilprepracticasprofesional.RespuestaFragment;
 import com.google.android.material.navigation.NavigationView;
 
-public class bienvenida extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+import modelos.Usuario;
+
+public class bienvenidaempresa extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawerLayout;
-    private TextView txtView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bienvenida);
-
-
+        setContentView(R.layout.activity_bienvenidaempresa);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawerLayout= findViewById(R.id.drawer_layout);
-        NavigationView navigationView=findViewById(R.id.nav_view);
+        NavigationView navigationView=findViewById(R.id.nav_view_empresa);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this, drawerLayout, toolbar,R.string.open_nav, R.string.close_nav);
         drawerLayout.addDrawerListener(toggle);
-
         toggle.syncState();
         Toast.makeText(this, Usuario.rol, Toast.LENGTH_SHORT).show();
 
@@ -52,37 +42,32 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
         }
     }
 
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.nav_view:
+            case R.id.nav_view_empresa:
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
                 break;
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
                 break;
 
-            case R.id.nav_anexos:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentAnexos()).commit();
+            case R.id.nav_solicitudes_aprobadas:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentSulicitudesAprobadas()).commit();
                 break;
 
-            case R.id.nav_informacion:
-//                if(Usuario.rol.equals("ROLE_TUTORACADEMICO")){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoFragment()).commit();
-//                }
-                break;
-            case R.id.nav_convocatoria_disponible:
-//                if(Usuario.rol.equals("ROLE_TUTORACADEMICO")){
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentConveniosDisponibles()).commit();
-//                }
+            case R.id.nav_solicitudes_enviadas:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentSulicitudesEnviadas()).commit();
                 break;
 
+            case R.id.nav_estudiantes_empresa:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentEstudianteEmpresa()).commit();
+                break;
 
 
             case R.id.nav_exit:
                 Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
-                Intent logout=new Intent(bienvenida.this, MainActivity.class);
+                Intent logout=new Intent(bienvenidaempresa.this,MainActivity.class);
                 startActivity(logout);
                 break;
         }

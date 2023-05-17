@@ -2,25 +2,49 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.movilprepracticasprofesional">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/lg"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovilPrePracticasProfesional"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".fragmente_buscarEstudent"
-            android:exported="false" />
-        <activity
-            android:name=".fragment_BuscarDocente"
-            android:exported="false" />
 
+        <!--Se trae al menu de Coordinador-->
+        <activity
+            android:name=".bienbenidocoordinador"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!--Se trae al menu de Docente-->
+        <activity
+            android:name=".bienvenidadocente"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!--Se trae al menu de Estudiante-->
         <activity
             android:name="modelos.bienvenida"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!--Se trae al menu de la empresa-->
+        <activity
+            android:name=".bienvenidaempresa"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!--Se trae al menu de la ResponsablePPP-->
+        <activity
+            android:name=".bienvenidadresponsable"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -30,6 +54,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Notificaciones NO TOCAR -->
+        <receiver
+            android:name="Notificaciones.AlarmReceiver"
+            android:enabled="true" />
+        <service
+            android:name="Notificaciones.NotificationService"
+            android:enabled="true" />
+        <receiver
+            android:name="Notificaciones.AlarmReceiver2"
+            android:enabled="true" />
+        <service
+            android:name="Notificaciones.NotificationServiceConvo"
+            android:enabled="true" />
+        <service android:name="Notificaciones.RebootServiceClass"/>
+        <receiver android:name="Notificaciones.MyRebootReceiver"
+            android:exported="true">
+            <!-- FIN NO TOCAR -->
+
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

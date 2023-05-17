@@ -11,6 +11,7 @@ public class Usuario {
     private String nombres;
 
     private String apellidos;
+    private String carrera;
     //Roles
     private List<Roles> roles;
     //Atributo statico para traer usuarios
@@ -27,6 +28,14 @@ public class Usuario {
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
     }
 
     public String getCedula() {

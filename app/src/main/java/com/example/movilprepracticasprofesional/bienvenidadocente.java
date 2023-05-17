@@ -1,5 +1,6 @@
 package com.example.movilprepracticasprofesional;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -13,6 +14,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import modelos.Usuario;
+
 public class bienvenidadocente extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawerLayout;
@@ -21,15 +24,16 @@ public class bienvenidadocente extends AppCompatActivity implements NavigationVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bienvenida);
+        setContentView(R.layout.activity_bienvenidadocente);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawerLayout= findViewById(R.id.drawer_layout);
-        NavigationView navigationView=findViewById(R.id.nav_view);
+        NavigationView navigationView=findViewById(R.id.nav_viewd);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this, drawerLayout, toolbar,R.string.open_nav, R.string.close_nav);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        Toast.makeText(this, Usuario.rol, Toast.LENGTH_SHORT).show();
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -41,7 +45,7 @@ public class bienvenidadocente extends AppCompatActivity implements NavigationVi
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.nav_view:
+            case R.id.nav_viewd:
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
                 break;
@@ -50,24 +54,9 @@ public class bienvenidadocente extends AppCompatActivity implements NavigationVi
 
                 break;
 
-            case R.id.nav_convocatoria:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConvocatoriaFragment()).commit();
-                Toast.makeText(this, "hool", Toast.LENGTH_SHORT).show();
 
-                break;
-
-            case R.id.nav_informacion:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoFragment()).commit();
-
-                break;
-
-            case R.id.nav_notification_:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NotificacionFragment()).commit();
-
-                break;
-
-            case R.id.nav_respuesta:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RespuestaFragment()).commit();
+            case R.id.nav_estudiantes_asignados:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ShareFragment()).commit();
                 break;
 
             case R.id.nav_practicante:
@@ -77,6 +66,8 @@ public class bienvenidadocente extends AppCompatActivity implements NavigationVi
 
             case R.id.nav_exit:
                 Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
+                Intent logout=new Intent(bienvenidadocente.this,MainActivity.class);
+                startActivity(logout);
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

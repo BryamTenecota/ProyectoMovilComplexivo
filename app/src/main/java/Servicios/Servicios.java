@@ -40,4 +40,10 @@ public interface Servicios {
 
     @GET("all")
     Call<List<Usuario>> getUsuarios();
+
+    @GET("estadoxusuario/{idUsuario}")
+    Call<Boolean> getEstadoPorUsuario(@Path("idUsuario") int idUsuario);
+
+    @GET("convocatoriaxusuario/{nombre_carrera}")
+    Call<Boolean> getConvocatoriaPorCarrera(@Path("nombre_carrera") String nombre_carrera);
 }
