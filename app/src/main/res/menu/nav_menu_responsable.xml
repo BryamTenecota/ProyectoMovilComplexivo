@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+     <item
+         android:id="@+id/nav_home"
+         android:icon="@drawable/home_nav"
+         android:title="Home"
+         />
+
+        <item
+            android:id="@+id/nav_tutores_empresariales"
+            android:icon="@drawable/person"
+            android:title="Tutores Empresariales"
+            />
+
+        <item
+            android:id="@+id/nav_estudiantes_aprobados"
+
+            android:icon="@drawable/estudiantes_aprobados"
+            android:title="Estudiantes Aprobados"
+            />
+
+        <item
+            android:id="@+id/nav_convocatoria"
+            android:icon="@drawable/convocatoria"
+            android:title="Convocatorias"
+            />
+
+    </group>
+
+
+    <item        android:title=""
+        >
+        <menu>
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/exit_nav"
+                android:title="Logout"
+                />
+        </menu>
+    </item>
+</menu>

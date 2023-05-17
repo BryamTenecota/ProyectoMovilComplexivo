@@ -32,17 +32,16 @@
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             />
     </LinearLayout>
 
 <com.google.android.material.navigation.NavigationView
     android:layout_width="250dp"
     android:layout_height="match_parent"
-    android:id="@+id/nav_viewd"
+    android:id="@+id/nav_view_empresa"
     android:layout_gravity="start"
     app:headerLayout="@layout/nav_headerempresa"
-    app:menu="@menu/nav_menudocente"
+    app:menu="@menu/nav_menuempresa"
     app:itemIconTint="@color/lavender"
     app:itemTextColor="@color/lavender"
         />

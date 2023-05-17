@@ -57,30 +57,23 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
                 break;
 
-            case R.id.nav_convocatoria:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConvocatoriaFragment()).commit();
-                Toast.makeText(this, Usuario.rol, Toast.LENGTH_SHORT).show();
+            case R.id.nav_anexos:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentAnexos()).commit();
                 break;
 
             case R.id.nav_informacion:
-                if(Usuario.rol.equals("ROLE_TUTORACADEMICO")){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoFragment()).commit();
-                }
-                Toast.makeText(this, "No se puede mostrar este elemento", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.nav_notification_:
-
 //                if(Usuario.rol.equals("ROLE_TUTORACADEMICO")){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NotificacionFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoFragment()).commit();
 //                }
-//                Toast.makeText(this, "No se puede mostrar este elemento", Toast.LENGTH_SHORT).show();
-
+                break;
+            case R.id.nav_convocatoria_disponible:
+//                if(Usuario.rol.equals("ROLE_TUTORACADEMICO")){
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentConveniosDisponibles()).commit();
+//                }
                 break;
 
-            case R.id.nav_respuesta:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RespuestaFragment()).commit();
-                break;
+
+
             case R.id.nav_exit:
                 Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
                 Intent logout=new Intent(bienvenida.this,MainActivity.class);

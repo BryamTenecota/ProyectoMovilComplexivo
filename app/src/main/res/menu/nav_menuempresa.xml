@@ -5,23 +5,27 @@
 
     <group android:checkableBehavior="single">
      <item
-         android:id="@+id/nav_homed"
+         android:id="@+id/nav_home"
          android:icon="@drawable/home_nav"
          android:title="Home"
          />
 
-
         <item
-            android:id="@+id/nav_notificacion"
-            android:icon="@drawable/notifications_nav"
-            android:title="Notificacioines"
+            android:id="@+id/nav_estudiantes_empresa"
+            android:icon="@drawable/person"
+            android:title="Estudiantes de Empresas"
             />
 
+        <item
+            android:id="@+id/nav_solicitudes_aprobadas"
+            android:icon="@drawable/list_aprovados"
+            android:title="Solicitudes Aprobadas"
+            />
 
         <item
-            android:id="@+id/nav_estudiantes"
-            android:icon="@drawable/person"
-            android:title="Estudiantes"
+            android:id="@+id/nav_solicitudes_enviadas"
+            android:icon="@drawable/list_convenio"
+            android:title="Solicitudes Enviadas"
             />
 
     </group>
@@ -31,9 +35,10 @@
         >
         <menu>
             <item
-                android:id="@+id/nav_exitd"
+                android:id="@+id/nav_exit"
                 android:icon="@drawable/exit_nav"
                 android:title="Logout"
-                />        </menu>
+                />
+        </menu>
     </item>
 </menu>

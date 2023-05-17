@@ -3,14 +3,53 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/drawable/estudiantes_aprobados.xml" value="0.1925" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/drawable/ic_notification_background.xml" value="0.191" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/drawable/list_aprovados.xml" value="0.168" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/drawable/notifications_nav.xml" value="0.191" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/drawable/user_nav.xml" value="0.211" />
         <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/activity_bienvenida.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/activity_bienvenida_responsable.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/activity_bienvenidacordinador.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/activity_bienvenidadocente.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/activity_bienvenidaempresa.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/activity_bienvenidaresponsable.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/activity_bienvenidoresponsable.xml" value="0.25" />
         <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_anexos.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_convenio_disponible.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_convenios.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_convocatoria.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_empresa_estudiante.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_estudiante.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_estudiantes.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_estudiantes_aprobados.xml" value="0.25" />
         <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_home.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_info.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_notifaicacioncordinador.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_notifaicaciondoc.xml" value="0.25" />
         <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_notificacion.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_respuesta.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_share.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_solicitud_aprobada.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_solicitud_enviada.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/fragment_tutores_empresariales.xml" value="0.25" />
         <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/list_docente.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/list_element.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/list_empresa.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/list_estudiantes.xml" value="0.24818840579710144" />
         <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/nav_header.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/nav_header_responsable.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/nav_headercordinador.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/nav_headerdocentes.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/nav_headerempresa.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/layout/nav_headerresponsableppp.xml" value="0.25" />
         <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/menu/nav_menu.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/menu/nav_menu_responsable.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/menu/nav_menucordinador.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/menu/nav_menudocente.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/menu/nav_menuempresa.xml" value="0.25" />
+        <entry key="..\:/Users/marce/OneDrive/Documentos/Carlos/gitMovil/ProyectoMovilComplexivo/app/src/main/res/menu/nav_menuresponsableppp.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -1,8 +1,16 @@
 <resources>
-    <string name="app_name">Navigation</string>
+
     <string name="open_nav">OpenNavegation</string>
     <string name="close_nav">CloseNaviagation</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title">Prácticas Pre-Profesionales</string>
+    <string name="nav">INSTA</string>
+    <string name="app_name"> Prácticas Pre-Profesionales</string>
+    <string name="app_name1"> Aceptación De Solicitud de Prácticas</string>
+    <string name="app_name2"> Se ah lanzado una Nueva Convocatoria</string>
+    <string name="changed_to">Notificación cambiada a las %s</string>
+    <string name="new_notification">Nueva notificación</string>
 
 </resources>

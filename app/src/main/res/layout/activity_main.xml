@@ -10,11 +10,12 @@
     android:gravity="center"
     android:background="@drawable/mesatrazo"
     tools:context=".MainActivity">
+
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/lg"
-        />
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:src="@drawable/lg" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,7 +36,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Loguin"
+        android:text="Login"
         android:id="@+id/loguinText"
         android:textSize="36sp"
         android:textAlignment="center"
@@ -58,6 +59,7 @@
         android:layout_marginTop="20dp"
         />
         <EditText
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
@@ -76,7 +78,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/loginbutton"
             android:textSize="18sp"
-            android:text="Loguin"
+            android:text="Login"
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/lavender"
             app:cornerRadius="20dp"
@@ -84,17 +86,7 @@
 
             />
 
-        <Button
-            android:id="@+id/loguingoogle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:drawableLeft="@drawable/google"
-            android:text="Google"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:backgroundTint="@color/white"
-            app:cornerRadius="20dp" />
+
 
 
     </LinearLayout>
