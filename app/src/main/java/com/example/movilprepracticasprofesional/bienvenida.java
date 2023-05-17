@@ -20,6 +20,7 @@ import modelos.Usuario;
 public class bienvenida extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawerLayout;
+    private TextView txtView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,9 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this, drawerLayout, toolbar,R.string.open_nav, R.string.close_nav);
         drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
 
+        toggle.syncState();
+        Toast.makeText(this, Usuario.rol, Toast.LENGTH_SHORT).show();
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -43,6 +45,7 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
             navigationView.setCheckedItem(R.id.nav_home);
         }
     }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -55,9 +58,8 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
                 break;
 
             case R.id.nav_convocatoria:
-
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConvocatoriaFragment()).commit();
-                Toast.makeText(this, "hool", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, Usuario.rol, Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.nav_informacion:
