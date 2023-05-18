@@ -11,7 +11,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface Servicios {
-//    @GET("posts")
+
     @GET("listar")
     Call<List<Empresa>> getEmpresa();
 
