@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import java.util.List;
 
 import Servicios.Servicios;
+import modelos.BaseUrl;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -40,7 +41,7 @@ public class FragmentTutorEmpresarial extends Fragment {
     private void MostrarJson() {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/user/")
+                .baseUrl(BaseUrl.getBaseUrl() + "user/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

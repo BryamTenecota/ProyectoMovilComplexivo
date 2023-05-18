@@ -22,6 +22,7 @@ import Notificaciones.AlarmReceiver;
 import Notificaciones.AlarmReceiver2;
 import Servicios.Servicios;
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import modelos.BaseUrl;
 import modelos.Roles;
 import modelos.UserSingleton;
 import modelos.Usuario;
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     private void  MostrarJson(){
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/user/")
+                .baseUrl(BaseUrl.getBaseUrl() + "user/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -198,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void MostrarNotiAceptacion() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/practica/")
+                .baseUrl(BaseUrl.getBaseUrl() + "practica/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Servicios apiSoli = retrofit.create(Servicios.class);
@@ -224,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void MostrarNotiConvo() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/practica/")
+                .baseUrl(BaseUrl.getBaseUrl() + "practica/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Servicios apiConvocatoria = retrofit.create(Servicios.class);

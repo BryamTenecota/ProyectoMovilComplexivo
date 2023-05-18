@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import java.util.List;
 
 import Servicios.Servicios;
+import modelos.BaseUrl;
 import modelos.UserSingleton;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,7 +45,7 @@ public class FragmentConvoctoriasDis extends Fragment {
         Toast.makeText(getActivity(), "Carrera: " + nombre_carrera, Toast.LENGTH_SHORT).show();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.101:8080/api/practica/")
+                .baseUrl(BaseUrl.getBaseUrl() + "practica/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

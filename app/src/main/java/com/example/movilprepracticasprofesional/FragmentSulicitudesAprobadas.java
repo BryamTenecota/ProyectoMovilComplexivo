@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import java.util.List;
 
 import Servicios.Servicios;
+import modelos.BaseUrl;
 import modelos.UserSingleton;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,7 +45,7 @@ public class FragmentSulicitudesAprobadas extends Fragment {
         Toast.makeText(getActivity(), "ID de Usuario: " + id, Toast.LENGTH_SHORT).show();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/solicitudPractica/")
+                .baseUrl(BaseUrl.getBaseUrl() + "solicitudPractica/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

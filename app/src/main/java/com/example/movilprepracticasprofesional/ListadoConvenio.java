@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Servicios.Servicios;
+import modelos.BaseUrl;
 import modelos.Convenio;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,7 +42,7 @@ public class ListadoConvenio extends Fragment {
 
     private void  MostrarJson(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/convenio/")
+                .baseUrl(BaseUrl.getBaseUrl() + "convenio/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

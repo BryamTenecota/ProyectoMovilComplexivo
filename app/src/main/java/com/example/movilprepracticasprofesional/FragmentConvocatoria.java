@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import java.util.List;
 
 import Servicios.Servicios;
+import modelos.BaseUrl;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,7 +42,7 @@ public class FragmentConvocatoria extends Fragment {
 
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/convocatorias/")
+                .baseUrl(BaseUrl.getBaseUrl() + "convocatorias/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
