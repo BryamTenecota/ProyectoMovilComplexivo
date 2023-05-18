@@ -62,11 +62,11 @@ public class ListadoEmpresa extends Fragment {
                 for (Empresa empresa : mEmpresaList) {
                     String content = "";
 
-                    content += "Nombre: " + empresa.getNombreEmpresa() + "\n";
-                    content += "Telefono: " + empresa.getNumeroTelefono() + "\n";
-                    content += "Correo: " + empresa.getCorreo() + "\n";
-                    content += "Descripcion: " + empresa.getDescripcion() + "\n";
 
+                    content += "Nombre: " + empresa.getNombreEmpresa() + "\n\n";
+                    content += "Telefono: " + empresa.getNumeroTelefono() + "\n\n";
+                    content += "Correo: " + empresa.getCorreo() + "\n\n";
+                    content += "Descripcion: " + empresa.getDescripcion() + "\n\n";
 
                     dataList.add(content);
                 }

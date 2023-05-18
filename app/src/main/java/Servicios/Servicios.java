@@ -5,7 +5,6 @@ import java.util.List;
 
 import modelos.Convenio;
 import modelos.Empresa;
-import modelos.TutorEmpresarial;
 import modelos.Usuario;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -15,9 +14,6 @@ public interface Servicios {
 //    @GET("posts")
     @GET("listar")
     Call<List<Empresa>> getEmpresa();
-
-    @GET("listar")
-    Call<List<TutorEmpresarial>> getTutorEmpresarial();
 
     @GET("all")
     Call<List<Usuario>> getUsuarios();
@@ -47,5 +43,14 @@ public interface Servicios {
 
     @GET("convocatoriadisp/{nombre_carrera}")
     Call<List<Object[]>> getConvocatoriaDisp(@Path("nombre_carrera") String nombre_carrera);
+
+    @GET("ListaTutoresC")
+    Call<List<Object[]>> getTutoresEmpresariales();
+
+    @GET("EstudiantesARespon/{idUsuario}")
+    Call<List<Object[]>> getEstudiantesByrespo(@Path("idUsuario") int idUsuario);
+
+    @GET("ListaConvocatoriasC")
+    Call<List<Object[]>> getConvocatorias();
 
 }

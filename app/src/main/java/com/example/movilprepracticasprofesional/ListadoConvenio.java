@@ -60,10 +60,10 @@ public class ListadoConvenio extends Fragment {
                 for (Convenio convenio : mConvenioList) {
                     String content = "";
 
-                    content += "Descripcion: " + convenio.getDescripcion() + "\n";
-                    content += "Fecha de elaboración: " + convenio.getFecha_elaboracion() + "\n";
-                    content += "Número de convenio: " + convenio.getNumero_convenio() + "\n";
-                    content += "Número ITV: " + convenio.getNumero_itv() + "\n";
+                    content += "Descripcion: " + convenio.getDescripcion() + "\n\n";
+                    content += "Fecha de elaboración: " + convenio.getFecha_elaboracion() + "\n\n";
+                    content += "Número de convenio: " + convenio.getNumero_convenio() + "\n\n";
+                    content += "Número ITV: " + convenio.getNumero_itv() + "\n\n";
 
 
                     dataList.add(content);
