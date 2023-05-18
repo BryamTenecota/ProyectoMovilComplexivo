@@ -88,7 +88,7 @@ public class ListadoEmpresa extends Fragment {
 
 
                         imageView.setImageResource(R.drawable.empresaic); // Reemplaza "user" con el nombre de tu imagen
-                        itemnombre.setText("Nombre: "+content+ "\n");
+                        itemnombre.setText(" "+content+ "\n");
                         return convertView;
                     }
                 };

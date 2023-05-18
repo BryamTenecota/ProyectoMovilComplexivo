@@ -31,9 +31,9 @@ public class ListadoConvenio extends Fragment {
     private ArrayAdapter<String> mAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_respuesta, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_convenios, container, false);
 
-        mjsonText = rootView.findViewById(R.id.jsonText);
+        mjsonListView = rootView.findViewById(R.id.jsonListView);
         MostrarJson();
 
         return rootView;
@@ -85,7 +85,7 @@ public class ListadoConvenio extends Fragment {
 
 
                         imageView.setImageResource(R.drawable.convenio); // Reemplaza "user" con el nombre de tu imagen
-                        itemdescripcionc.setText("Descripcion: " + content + "\n");
+                        itemdescripcionc.setText(" " + content + "\n");
                         return convertView;
                     }
                 };
