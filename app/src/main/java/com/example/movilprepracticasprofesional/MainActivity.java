@@ -1,6 +1,4 @@
 package com.example.movilprepracticasprofesional;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
@@ -10,10 +8,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 import java.util.List;
@@ -21,9 +21,9 @@ import java.util.List;
 import Notificaciones.AlarmReceiver;
 import Notificaciones.AlarmReceiver2;
 import Servicios.Servicios;
-
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import modelos.Roles;
+import modelos.UserSingleton;
 import modelos.Usuario;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     private void  MostrarJson(){
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.5.94:8080/api/user/")
+                .baseUrl("http://192.168.18.39:8080/api/user/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -142,6 +142,8 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                             if(rol.equals("ROLE_TUTOREMPRESARIAL")){
+                                idus = id;
+                                UserSingleton.setIdUsuario(idus);
                                 sesionIniciada = true;
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenidaempresa.class);
                                 startActivity(vntmenustudiante);

@@ -8,7 +8,7 @@
         android:id="@+id/item_image"
         android:layout_width="59dp"
         android:layout_height="67dp"
-        android:src="@drawable/empresaic" />
+        android:src="@drawable/solicia" />
 
     <LinearLayout
         android:layout_width="342dp"
@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_nombreemp"
+            android:id="@+id/item_nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -24,7 +24,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/item_telefono"
+            android:id="@+id/item_fechae"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -32,14 +32,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/item_correo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="#000000"
-            android:textSize="16sp" />
-        <TextView
-            android:id="@+id/item_descripcion"
+            android:id="@+id/item_fechaa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

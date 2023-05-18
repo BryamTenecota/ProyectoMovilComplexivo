@@ -1,10 +1,9 @@
 package Servicios;
 
 
-
-
 import java.util.List;
 
+import modelos.Convenio;
 import modelos.Empresa;
 import modelos.TutorEmpresarial;
 import modelos.Usuario;
@@ -28,4 +27,20 @@ public interface Servicios {
 
     @GET("convocatoriaxusuario/{nombre_carrera}")
     Call<Boolean> getConvocatoriaPorCarrera(@Path("nombre_carrera") String nombre_carrera);
+
+    @GET("listar")
+    Call<List<Convenio>> getConvenio();
+
+    @GET("listasoltuto/{idUsuario}")
+    Call<List<Object[]>> getSolporTuto(@Path("idUsuario") int idUsuario);
+
+    @GET("listasoltutoaceptadas/{idUsuario}")
+    Call<List<Object[]>> getSolporTutoAceptadas(@Path("idUsuario") int idUsuario);
+
+
+    @GET("listartuto/{idUsuario}")
+    Call<List<Object[]>> getUsuariosPorTutorEmpresarial(@Path("idUsuario") int idUsuario);
+
+
+
 }
