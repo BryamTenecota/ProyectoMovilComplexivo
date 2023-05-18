@@ -53,8 +53,8 @@ public class   ConvocatoriaFragment extends Fragment {
                 List<TutorEmpresarial> lista= response.body();
                 for(TutorEmpresarial tutorEmpresarial: lista){
                     String content="";
-                    content+="Nombre Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_nombre()+"\n";
-                    content+="Apellido Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_apellido()+"\n";
+                    //content+="Nombre Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_nombre()+"\n";
+                    //content+="Apellido Tutor: "+tutorEmpresarial.getUsuario().getPersonaEmpresa().getPrimer_apellido()+"\n";
                     content+="Empresa: "+tutorEmpresarial.getEmpresa().getNombreEmpresa()+"\n";
                     content+="Cargo: "+tutorEmpresarial.getCargo()+"\n";
                     mjsonText.append(content);
