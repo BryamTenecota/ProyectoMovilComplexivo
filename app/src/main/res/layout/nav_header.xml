@@ -20,7 +20,7 @@
         android:id="@+id/name_rol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Carlos Ibarra "
+            android:text="Estudiante"
         android:layout_marginBottom="35dp"
         android:layout_marginRight="40dp"
 

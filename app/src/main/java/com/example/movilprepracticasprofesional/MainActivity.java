@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void MostrarNotiAceptacion() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.5.94:8080/api/practica/")
+                .baseUrl("http://192.168.18.39:8080/api/practica/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Servicios apiSoli = retrofit.create(Servicios.class);
@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void MostrarNotiConvo() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.5.94:8080/api/practica/")
+                .baseUrl("http://192.168.18.39:8080/api/practica/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Servicios apiConvocatoria = retrofit.create(Servicios.class);
