@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     private void  MostrarJson(){
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.39:8080/api/user/")
+                .baseUrl("http://192.168.0.101:8080/api/user/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -122,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
                             rol += roles.getRolnombre();
                             if(rol.equals("ROLE_ESTUDIANTE")){
                                 idus = id; nombre_carrera=carrera;
+                                UserSingleton.setNombre_carrera(nombre_carrera);
                                 sesionIniciada = true;
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenida.class);
                                 startActivity(vntmenustudiante);
@@ -133,6 +134,10 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                             if(rol.equals("ROLE_TUTORACADEMICO")){
+                                idus = id;
+                                UserSingleton.setIdUsuario(idus);
+                                nombre_carrera=carrera;
+                                UserSingleton.setNombre_carrera(nombre_carrera);
                                 sesionIniciada = true;
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenidadocente.class);
                                 startActivity(vntmenustudiante);

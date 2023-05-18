@@ -68,7 +68,7 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case R.id.nav_convocatoria_disponible:
 //                if(Usuario.rol.equals("ROLE_TUTORACADEMICO")){
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentConveniosDisponibles()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentConvoctoriasDis()).commit();
 //                }
                 break;
 

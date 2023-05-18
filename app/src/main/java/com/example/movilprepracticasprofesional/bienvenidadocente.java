@@ -53,11 +53,10 @@ public class bienvenidadocente extends AppCompatActivity implements NavigationVi
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
                 break;
-
-
             case R.id.nav_estudiantes_asignados:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ShareFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentEstudiantePracticante()).commit();
                 break;
+
             case R.id.nav_exit:
                 Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
                 Intent logout=new Intent(bienvenidadocente.this,MainActivity.class);

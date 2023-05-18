@@ -42,5 +42,10 @@ public interface Servicios {
     Call<List<Object[]>> getUsuariosPorTutorEmpresarial(@Path("idUsuario") int idUsuario);
 
 
+    @GET("listaestudiante/{idUsuario}")
+    Call<List<Object[]>> getUsuariosBytutoracademico(@Path("idUsuario") int idUsuario);
+
+    @GET("convocatoriadisp/{nombre_carrera}")
+    Call<List<Object[]>> getConvocatoriaDisp(@Path("nombre_carrera") String nombre_carrera);
 
 }

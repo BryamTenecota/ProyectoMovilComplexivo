@@ -4,6 +4,8 @@ public class UserSingleton {
 
     private static int idUsuario;
 
+    private static String nombre_carrera;
+
     private UserSingleton() {}
 
     public static UserSingleton getInstance() {
@@ -16,6 +18,14 @@ public class UserSingleton {
 
     public static void setIdUsuario(int id) {
         idUsuario = id;
+    }
+
+    public static String getNombre_carrera() {
+        return nombre_carrera;
+    }
+
+    public static void setNombre_carrera(String nombre_carrera) {
+        UserSingleton.nombre_carrera = nombre_carrera;
     }
 
     private static class UserSingletonHolder {
