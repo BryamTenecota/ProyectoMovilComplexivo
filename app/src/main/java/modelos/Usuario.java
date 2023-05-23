@@ -9,6 +9,8 @@ public class Usuario {
     private String correo;
     private String contrasenia;
     private String nombres;
+
+    private String apellidos;
     private String carrera;
     //Roles
     private List<Roles> roles;
@@ -66,6 +68,14 @@ public class Usuario {
 
     public void setNombres(String nombres) {
         this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public List<Roles> getRoles() {

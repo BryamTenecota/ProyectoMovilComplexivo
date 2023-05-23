@@ -1,10 +1,14 @@
 package com.example.movilprepracticasprofesional;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -13,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Servicios.Servicios;
@@ -35,11 +40,39 @@ public class FragmentTutorEmpresarial extends Fragment {
         mjsonListView = rootView.findViewById(R.id.jsonListView);
         MostrarJson();
 
+        EditText searchEditText = rootView.findViewById(R.id.searchEditText);
+        ImageButton searchButton = rootView.findViewById(R.id.btnIcono);
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchText = searchEditText.getText().toString();
+                buscarTutorEmpresarial(searchText);
+            }
+        });
+
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // No se requiere acción antes de cambiar el texto
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // No se requiere acción mientras se cambia el texto
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String searchText = s.toString();
+                buscarTutorEmpresarial(searchText);
+            }
+        });
+
         return rootView;
     }
 
     private void MostrarJson() {
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BaseUrl.getBaseUrl() + "user/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -67,7 +100,7 @@ public class FragmentTutorEmpresarial extends Fragment {
 
                         ImageView itemImage = convertView.findViewById(R.id.item_image);
                         TextView itemcedulatuto = convertView.findViewById(R.id.item_cedulatuto);
-                        TextView itemnombretuto= convertView.findViewById(R.id.item_nombretuto);
+                        TextView itemnombretuto = convertView.findViewById(R.id.item_nombretuto);
                         TextView itemapellidotuto = convertView.findViewById(R.id.item_apellidotuto);
                         TextView itemcargotuto = convertView.findViewById(R.id.item_cargotuto);
                         TextView itemnombreempr = convertView.findViewById(R.id.item_nombreempr);
@@ -79,13 +112,12 @@ public class FragmentTutorEmpresarial extends Fragment {
                         String cargotuto = (String) object[3];
                         String nombreempr = (String) object[4];
 
-                        // Asignar los datos al diseño de elementos de lista
                         itemcedulatuto.setText("Cédula: " + cedulatuto + "\n");
                         itemnombretuto.setText("Nombres: " + nombretuto + "\n");
                         itemapellidotuto.setText("Apellidos: " + apellidotuto + "\n");
                         itemcargotuto.setText("Cargo: " + cargotuto + "\n");
                         itemnombreempr.setText("Empresa: " + nombreempr + "\n");
-                        itemImage.setImageResource(R.drawable.tutore); // Reemplaza "imagen" con el nombre de tu imagen
+                        itemImage.setImageResource(R.drawable.tutore);
 
                         return convertView;
                     }
@@ -99,5 +131,28 @@ public class FragmentTutorEmpresarial extends Fragment {
                 // Manejar el fallo de la llamada aquí
             }
         });
+    }
+
+    private void buscarTutorEmpresarial(String searchText) {
+        if (searchText.isEmpty()) {
+            mAdapter.clear();
+            mAdapter.addAll(mObjectList);
+            mAdapter.notifyDataSetChanged();
+            return;
+        }
+
+        List<Object[]> filteredList = new ArrayList<>();
+
+        for (Object[] object : mObjectList) {
+            String cedulatuto = (String) object[0];
+
+            if (cedulatuto.toLowerCase().contains(searchText.toLowerCase())) {
+                filteredList.add(object);
+            }
+        }
+
+        mAdapter.clear();
+        mAdapter.addAll(filteredList);
+        mAdapter.notifyDataSetChanged();
     }
 }

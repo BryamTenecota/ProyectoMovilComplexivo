@@ -6,6 +6,10 @@ public class UserSingleton {
 
     private static String nombre_carrera;
 
+    private static String nombres;
+
+    private static String apellidos;
+
     private UserSingleton() {}
 
     public static UserSingleton getInstance() {
@@ -22,6 +26,22 @@ public class UserSingleton {
 
     public static String getNombre_carrera() {
         return nombre_carrera;
+    }
+
+    public static String getNombres() {
+        return nombres;
+    }
+
+    public static void setNombres(String nombres) {
+        UserSingleton.nombres = nombres;
+    }
+
+    public static String getApellidos() {
+        return apellidos;
+    }
+
+    public static void setApellidos(String apellidos) {
+        UserSingleton.apellidos = apellidos;
     }
 
     public static void setNombre_carrera(String nombre_carrera) {

@@ -12,7 +12,7 @@ import retrofit2.http.Path;
 
 public interface Servicios {
 
-    @GET("listar")
+   @GET("listar")
     Call<List<Empresa>> getEmpresa();
 
     @GET("all")
@@ -52,5 +52,6 @@ public interface Servicios {
 
     @GET("ListaConvocatoriasC")
     Call<List<Object[]>> getConvocatorias();
+
 
 }

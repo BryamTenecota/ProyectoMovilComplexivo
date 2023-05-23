@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
     private PendingIntent alarmIntent2;
     int idus = 0;
     String nombre_carrera="";
+    String nombreest="";
+
+    String apellidoest="";
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private TextView txtUser;
@@ -67,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         alarmManager2 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent2 = new Intent(this, AlarmReceiver2.class); // Reemplaza "AnotherAlarmReceiver" con el nombre de tu clase BroadcastReceiver para el segundo servicio
         alarmIntent2 = PendingIntent.getBroadcast(this, alarmID2, intent2, PendingIntent.FLAG_UPDATE_CURRENT);
+
+
     }
 
 
@@ -110,11 +115,15 @@ public class MainActivity extends AppCompatActivity {
                     String us="";
                     String rol="";
                     String carrera="";
+                    String nombres="";
+                    String apellidos= "";
                     int id = 0;
                     us +=user.getCorreo();
                     ps +=user.getContrasenia();
                     id = user.getIdUsuario();
                     carrera=user.getCarrera();
+                    nombres = user.getNombres();
+                    apellidos = user.getApellidos();
                     String encryptedPassword = ps;
                     String plainPassword = txtPasword.getText().toString();
                     boolean passwordMatch = BCrypt.verifyer().verify(plainPassword.toCharArray(), encryptedPassword).verified;
@@ -124,10 +133,15 @@ public class MainActivity extends AppCompatActivity {
                             if(rol.equals("ROLE_ESTUDIANTE")){
                                 idus = id; nombre_carrera=carrera;
                                 UserSingleton.setNombre_carrera(nombre_carrera);
+                                nombreest = nombres;
+                                UserSingleton.setNombres(nombreest);
+                                apellidoest = apellidos;
+                                UserSingleton.setApellidos(apellidoest);
                                 sesionIniciada = true;
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenida.class);
                                 startActivity(vntmenustudiante);
                                 Usuario.rol=rol;
+
                                 Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
                                 MostrarNotiAceptacion();
                                 MostrarNotiConvo();
@@ -139,6 +153,10 @@ public class MainActivity extends AppCompatActivity {
                                 UserSingleton.setIdUsuario(idus);
                                 nombre_carrera=carrera;
                                 UserSingleton.setNombre_carrera(nombre_carrera);
+                                nombreest = nombres;
+                                UserSingleton.setNombres(nombreest);
+                                apellidoest = apellidos;
+                                UserSingleton.setApellidos(apellidoest);
                                 sesionIniciada = true;
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenidadocente.class);
                                 startActivity(vntmenustudiante);
@@ -150,6 +168,10 @@ public class MainActivity extends AppCompatActivity {
                             if(rol.equals("ROLE_TUTOREMPRESARIAL")){
                                 idus = id;
                                 UserSingleton.setIdUsuario(idus);
+                                nombreest = nombres;
+                                UserSingleton.setNombres(nombreest);
+                                apellidoest = apellidos;
+                                UserSingleton.setApellidos(apellidoest);
                                 sesionIniciada = true;
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenidaempresa.class);
                                 startActivity(vntmenustudiante);
@@ -159,6 +181,11 @@ public class MainActivity extends AppCompatActivity {
                             }
                             Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
                             if(rol.equals("ROLE_CORDINADOR")){
+                                idus = id;
+                                nombreest = nombres;
+                                UserSingleton.setNombres(nombreest);
+                                apellidoest = apellidos;
+                                UserSingleton.setApellidos(apellidoest);
                                 sesionIniciada = true;
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienbenidocoordinador.class);
                                 startActivity(vntmenustudiante);
@@ -170,6 +197,10 @@ public class MainActivity extends AppCompatActivity {
                             if(rol.equals("ROLE_RESPONSABLEPP")){
                                 idus = id;
                                 UserSingleton.setIdUsuario(idus);
+                                nombreest = nombres;
+                                UserSingleton.setNombres(nombreest);
+                                apellidoest = apellidos;
+                                UserSingleton.setApellidos(apellidoest);
                                 sesionIniciada = true;
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenidadresponsable.class);
                                 startActivity(vntmenustudiante);
@@ -213,6 +244,8 @@ public class MainActivity extends AppCompatActivity {
                         Calendar today = Calendar.getInstance();
                         today.add(Calendar.SECOND, 5);
                         alarmManager.setExact(AlarmManager.RTC_WAKEUP, today.getTimeInMillis(), alarmIntent);
+
+
                     }
                 } else {
                 }
@@ -239,6 +272,7 @@ public class MainActivity extends AppCompatActivity {
                         Calendar today2 = Calendar.getInstance();
                         today2.add(Calendar.SECOND, 5);
                         alarmManager2.setExact(AlarmManager.RTC_WAKEUP, today2.getTimeInMillis(), alarmIntent2);
+
                     }
                 } else {
                 }

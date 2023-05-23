@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,11 +8,44 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="120px"
-        android:text="Solicitudes Enviadas"
+        android:text="Solicitud enviada "
         android:textAlignment="center"
         android:textStyle="bold"
         android:textSize="50px"
         android:gravity="center" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        app:srcCompat="@drawable/insta" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:hint="Buscar"
+            android:inputType="text"
+            android:maxLines="1" />
+
+        <ImageButton
+            android:id="@+id/btnIcono"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/bus"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:padding="8dp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView2"
@@ -21,6 +55,7 @@
         android:textStyle="bold"
         android:textSize="90px"
         android:gravity="center" />
+
 
     <ListView
         android:id="@+id/jsonListView"

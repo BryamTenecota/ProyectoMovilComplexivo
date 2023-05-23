@@ -1,10 +1,14 @@
 package com.example.movilprepracticasprofesional;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Servicios.Servicios;
@@ -36,6 +41,35 @@ public class FragmentConvoctoriasDis extends Fragment {
 
         mjsonListView = rootView.findViewById(R.id.jsonListView);
         MostrarJson();
+
+        EditText searchEditText = rootView.findViewById(R.id.searchEditText);
+        ImageButton searchButton = rootView.findViewById(R.id.btnIcono);
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchText = searchEditText.getText().toString();
+                buscarConvocatoria(searchText);
+            }
+        });
+
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // No se requiere acción antes de cambiar el texto
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // No se requiere acción mientras se cambia el texto
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String searchText = s.toString();
+                buscarConvocatoria(searchText);
+            }
+        });
 
         return rootView;
     }
@@ -79,11 +113,10 @@ public class FragmentConvoctoriasDis extends Fragment {
                         String fechap = (String) object[1];
                         String fechaex = (String) object[2];
 
-                        // Asignar los datos al diseño de elementos de lista
                         itemnombreConvo.setText("Nombre Convocatoria: " + nombreConvo + "\n");
                         itemfechap.setText("Fecha publicación: " + fechap + "\n");
                         itemfechaex.setText("Fecha Expiración: " + fechaex + "\n");
-                        itemImage.setImageResource(R.drawable.convo); // Reemplaza "imagen" con el nombre de tu imagen
+                        itemImage.setImageResource(R.drawable.convo);
 
                         return convertView;
                     }
@@ -97,5 +130,27 @@ public class FragmentConvoctoriasDis extends Fragment {
                 // Manejar el fallo de la llamada aquí
             }
         });
+    }
+
+    private void buscarConvocatoria(String searchText) {
+        if (searchText.isEmpty()) {
+            mAdapter.clear();
+            mAdapter.addAll(mObjectList);
+            mAdapter.notifyDataSetChanged();
+            return;
+        }
+
+        List<Object[]> filteredList = new ArrayList<>();
+        for (Object[] object : mObjectList) {
+            String nombreConvo = (String) object[0];
+
+            if (nombreConvo.toLowerCase().contains(searchText.toLowerCase())) {
+                filteredList.add(object);
+            }
+        }
+
+        mAdapter.clear();
+        mAdapter.addAll(filteredList);
+        mAdapter.notifyDataSetChanged();
     }
 }

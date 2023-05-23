@@ -8,22 +8,26 @@
          android:id="@+id/nav_home"
          android:icon="@drawable/home_nav"
          android:title="Home"
+         android:background="@color/blues"
          />
 
         <item
             android:id="@+id/nav_convocatoria_disponible"
             android:icon="@drawable/list_convenio"
             android:title="Convocatorias Disponibles"
+            android:background="@color/blues"
             />
         <item
             android:id="@+id/nav_informacion"
             android:icon="@drawable/informacion"
-            android:title="Informacion"
+            android:title="Información"
+            android:background="@color/blues"
             />
         <item
             android:id="@+id/nav_anexos"
             android:icon="@drawable/list_convenio"
             android:title="Anexos"
+            android:background="@color/blues"
             />
 
 

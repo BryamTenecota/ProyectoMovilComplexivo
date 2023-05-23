@@ -1,10 +1,14 @@
 package com.example.movilprepracticasprofesional;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Servicios.Servicios;
@@ -37,6 +42,35 @@ public class FragmentSulicitudesAprobadas extends Fragment {
         mjsonListView = rootView.findViewById(R.id.jsonListView);
         MostrarJson();
 
+        EditText searchEditText = rootView.findViewById(R.id.searchEditText);
+        ImageButton searchButton = rootView.findViewById(R.id.btnIcono);
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchText = searchEditText.getText().toString();
+                buscarSolicitud(searchText);
+            }
+        });
+
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // No se requiere acción antes de cambiar el texto
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // No se requiere acción mientras se cambia el texto
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String searchText = s.toString();
+                buscarSolicitud(searchText);
+            }
+        });
+
         return rootView;
     }
 
@@ -49,8 +83,8 @@ public class FragmentSulicitudesAprobadas extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        Servicios servie= retrofit.create(Servicios.class);
-        Call<List<Object[]>> call= servie.getSolporTutoAceptadas(id);
+        Servicios service = retrofit.create(Servicios.class);
+        Call<List<Object[]>> call = service.getSolporTutoAceptadas(id);
 
         call.enqueue(new Callback<List<Object[]>>() {
             @Override
@@ -79,11 +113,10 @@ public class FragmentSulicitudesAprobadas extends Fragment {
                         String fechae = (String) object[1];
                         String fechaa = (String) object[2];
 
-                        // Asignar los datos al diseño de elementos de lista
                         itemnombre.setText("Nombre Solicitud: " + nombresol + "\n");
                         itemfechae.setText("Fecha de Envio: " + fechae + "\n");
                         itemfechaa.setText("Fecha de Aceptaciòn: " + fechaa + "\n");
-                        itemImage.setImageResource(R.drawable.solicia); // Reemplaza "imagen" con el nombre de tu imagen
+                        itemImage.setImageResource(R.drawable.solicia);
 
                         return convertView;
                     }
@@ -97,5 +130,27 @@ public class FragmentSulicitudesAprobadas extends Fragment {
                 // Manejar el fallo de la llamada aquí
             }
         });
+    }
+
+    private void buscarSolicitud(String searchText) {
+        if (searchText.isEmpty()) {
+            mAdapter.clear();
+            mAdapter.addAll(mObjectList);
+            mAdapter.notifyDataSetChanged();
+            return;
+        }
+
+        List<Object[]> filteredList = new ArrayList<>();
+        for (Object[] object : mObjectList) {
+            String nombresol = (String) object[0];
+
+            if (nombresol.toLowerCase().contains(searchText.toLowerCase())) {
+                filteredList.add(object);
+            }
+        }
+
+        mAdapter.clear();
+        mAdapter.addAll(filteredList);
+        mAdapter.notifyDataSetChanged();
     }
 }

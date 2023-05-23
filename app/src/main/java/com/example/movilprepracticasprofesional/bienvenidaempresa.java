@@ -1,8 +1,12 @@
 package com.example.movilprepracticasprofesional;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,6 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import modelos.UserSingleton;
 import modelos.Usuario;
 
 public class bienvenidaempresa extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -29,6 +34,13 @@ public class bienvenidaempresa extends AppCompatActivity implements NavigationVi
         setSupportActionBar(toolbar);
         drawerLayout= findViewById(R.id.drawer_layout);
         NavigationView navigationView=findViewById(R.id.nav_view_empresa);
+        View headerView = navigationView.getHeaderView(0);
+        TextView nombreTextView = headerView.findViewById(R.id.nameTE);
+        TextView apellidoTextView = headerView.findViewById(R.id.lastnameTE);
+        String nombreEst = UserSingleton.getNombres();
+        nombreTextView.setText(nombreEst);
+        String apellidoEst = UserSingleton.getApellidos();
+        apellidoTextView.setText(apellidoEst);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this, drawerLayout, toolbar,R.string.open_nav, R.string.close_nav);
         drawerLayout.addDrawerListener(toggle);
@@ -66,10 +78,38 @@ public class bienvenidaempresa extends AppCompatActivity implements NavigationVi
 
 
             case R.id.nav_exit:
-                Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
-                Intent logout=new Intent(bienvenidaempresa.this,MainActivity.class);
-                startActivity(logout);
-                break;
+                Toast.makeText(bienvenidaempresa.this, "", Toast.LENGTH_SHORT).show();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(bienvenidaempresa.this);
+                builder.setTitle("Confirmación");
+                builder.setMessage("¿Desea salir de la aplicación?");
+                builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Cerrar sesión
+                        // ...
+
+                        // Redirigir a la vista de inicio de sesión
+                        Intent logout = new Intent(bienvenidaempresa.this, MainActivity.class);
+                        startActivity(logout);
+
+                        // Finalizar la actividad actual
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // No hacer nada, simplemente cerrar el diálogo
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+
+
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

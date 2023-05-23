@@ -5,7 +5,9 @@ public class Empresa {
     private String nombreEmpresa;
     private String numeroTelefono;
     private String correo;
-    private String descripcion;
+    private String direccion;
+
+
 
     public int getIdempresa() {
         return idempresa;
@@ -39,11 +41,11 @@ public class Empresa {
         this.correo = correo;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }

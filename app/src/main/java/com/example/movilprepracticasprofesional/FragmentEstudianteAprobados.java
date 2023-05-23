@@ -1,10 +1,14 @@
 package com.example.movilprepracticasprofesional;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Servicios.Servicios;
@@ -37,11 +42,39 @@ public class FragmentEstudianteAprobados extends Fragment {
         mjsonListView = rootView.findViewById(R.id.jsonListView);
         MostrarJson();
 
+        EditText searchEditText = rootView.findViewById(R.id.searchEditText);
+        ImageButton searchButton = rootView.findViewById(R.id.btnIcono);
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchText = searchEditText.getText().toString();
+                buscarEstudiante(searchText);
+            }
+        });
+
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // No se requiere acción antes de cambiar el texto
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // No se requiere acción mientras se cambia el texto
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String searchText = s.toString();
+                buscarEstudiante(searchText);
+            }
+        });
+
         return rootView;
     }
 
     private void MostrarJson() {
-
         int id = UserSingleton.getIdUsuario();
         Toast.makeText(getActivity(), "ID de Usuario: " + id, Toast.LENGTH_SHORT).show();
 
@@ -82,13 +115,11 @@ public class FragmentEstudianteAprobados extends Fragment {
                         String apellidoest = (String) object[2];
                         String carreraest = (String) object[3];
 
-
-                        // Asignar los datos al diseño de elementos de lista
                         itemcedulaest.setText("Cédula: " + cedulaest + "\n");
                         itemnombrest.setText("Nombres: " + nombreest + "\n");
                         itemapellidoest.setText("Apellidos: " + apellidoest + "\n");
                         itemcarreraest.setText("Carrera: " + carreraest + "\n");
-                        itemImage.setImageResource(R.drawable.estuapr); // Reemplaza "imagen" con el nombre de tu imagen
+                        itemImage.setImageResource(R.drawable.estuapr);
 
                         return convertView;
                     }
@@ -102,5 +133,27 @@ public class FragmentEstudianteAprobados extends Fragment {
                 // Manejar el fallo de la llamada aquí
             }
         });
+    }
+
+    private void buscarEstudiante(String searchText) {
+        if (searchText.isEmpty()) {
+            mAdapter.clear();
+            mAdapter.addAll(mObjectList);
+            mAdapter.notifyDataSetChanged();
+            return;
+        }
+
+        List<Object[]> filteredList = new ArrayList<>();
+        for (Object[] object : mObjectList) {
+            String cedulaest = (String) object[0];
+
+            if (cedulaest.toLowerCase().contains(searchText.toLowerCase())) {
+                filteredList.add(object);
+            }
+        }
+
+        mAdapter.clear();
+        mAdapter.addAll(filteredList);
+        mAdapter.notifyDataSetChanged();
     }
 }
