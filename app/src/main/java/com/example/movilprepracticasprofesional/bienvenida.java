@@ -18,9 +18,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import modelos.UserSingleton;
-import modelos.Usuario;
 
 public class bienvenida extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -51,7 +51,12 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
         drawerLayout.addDrawerListener(toggle);
 
         toggle.syncState();
-        Toast.makeText(this, Usuario.rol, Toast.LENGTH_SHORT).show();
+
+        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "¡Bienvenido entró como estudiante!", Snackbar.LENGTH_SHORT);
+        View snackbarView = snackbar.getView();
+        snackbarView.setBackgroundColor(getResources().getColor(R.color.verde));
+        snackbar.show();
+
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -63,16 +68,16 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.nav_view:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
                 break;
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
                 break;
 
             case R.id.nav_anexos:
-                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentAnexos()).commit();
+
                 Uri uri = Uri.parse("https://drive.google.com/drive/folders/1vD5YU0nRh920S1pJHpRXeQWsqEPtXYYn?usp=sharing");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
@@ -80,7 +85,7 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
 
             case R.id.nav_informacion:
 //                if(Usuario.rol.equals("ROLE_TUTORACADEMICO")){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoFragment()).commit();
 //                }
                 break;
             case R.id.nav_convocatoria_disponible:
@@ -88,8 +93,9 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentConvoctoriasDis()).commit();
 //                }
                 break;
-
-
+            case R.id.nav_perfil:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentPerfilU()).commit();
+        break;
 
             case R.id.nav_exit:
                 Toast.makeText(bienvenida.this, "", Toast.LENGTH_SHORT).show();

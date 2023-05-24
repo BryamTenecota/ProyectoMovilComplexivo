@@ -60,7 +60,6 @@
     <ListView
         android:id="@+id/jsonListView"
         android:layout_width="match_parent"
-        android:layout_height="685dp" />
-
+        android:layout_height="470dp" />
 
 </LinearLayout>

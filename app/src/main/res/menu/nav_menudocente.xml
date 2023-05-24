@@ -9,7 +9,12 @@
          android:icon="@drawable/home_nav"
          android:title="Home"
          />
-
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/user_nav"
+            android:title="Mi Perfil"
+            android:background="@color/blues"
+            />
 
         <item
             android:id="@+id/nav_estudiantes_asignados"

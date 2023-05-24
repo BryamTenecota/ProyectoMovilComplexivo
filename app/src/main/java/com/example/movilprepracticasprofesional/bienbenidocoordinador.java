@@ -17,9 +17,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import modelos.UserSingleton;
-import modelos.Usuario;
 
 public class bienbenidocoordinador extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -45,7 +45,11 @@ public class bienbenidocoordinador extends AppCompatActivity implements Navigati
         ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this, drawerLayout, toolbar,R.string.open_nav, R.string.close_nav);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        Toast.makeText(this, Usuario.rol, Toast.LENGTH_SHORT).show();
+
+        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "¡Bienvenido entró como coordinador!", Snackbar.LENGTH_SHORT);
+        View snackbarView = snackbar.getView();
+        snackbarView.setBackgroundColor(getResources().getColor(R.color.verde));
+        snackbar.show();
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -77,6 +81,9 @@ public class bienbenidocoordinador extends AppCompatActivity implements Navigati
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListadoEmpresa()).commit();
                 break;
 
+            case R.id.nav_perfil:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentPerfilU()).commit();
+                break;
 
             case R.id.nav_exit:
               /*  Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();

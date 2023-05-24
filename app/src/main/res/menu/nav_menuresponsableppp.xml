@@ -11,6 +11,13 @@
          />
 
         <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/user_nav"
+            android:title="Mi Perfil"
+            android:background="@color/blues"
+            />
+
+        <item
             android:id="@+id/nav_tutores_empresariales"
             android:icon="@drawable/estudiantes_aprobados"
             android:title="Estudiantes Aprobados"

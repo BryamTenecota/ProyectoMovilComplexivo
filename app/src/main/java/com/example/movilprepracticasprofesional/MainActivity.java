@@ -2,13 +2,18 @@ package com.example.movilprepracticasprofesional;
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,25 +76,30 @@ public class MainActivity extends AppCompatActivity {
         Intent intent2 = new Intent(this, AlarmReceiver2.class); // Reemplaza "AnotherAlarmReceiver" con el nombre de tu clase BroadcastReceiver para el segundo servicio
         alarmIntent2 = PendingIntent.getBroadcast(this, alarmID2, intent2, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        EditText editTextPassword = findViewById(R.id.password);
+        ImageButton imageViewShowPassword = findViewById(R.id.btnIcono);
 
+        imageViewShowPassword.setOnClickListener(new View.OnClickListener() {
+            boolean isPasswordVisible = false;
+
+            @Override
+            public void onClick(View v) {
+                isPasswordVisible = !isPasswordVisible;
+
+                if (isPasswordVisible) {
+                    editTextPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    imageViewShowPassword.setImageResource(R.drawable.novisible);
+                } else {
+                    editTextPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    imageViewShowPassword.setImageResource(R.drawable.visible);
+                }
+                editTextPassword.setSelection(editTextPassword.length()); // Mantén el cursor al final del texto
+            }
+        });
     }
-
-
 
     public void logueado(View view) {
         MostrarJson();
-//        if(txtUser.getText().toString().equals("carlos") && txtPasword.getText().toString().equals("12345")){
-//            Intent vtn=new Intent(MainActivity.this,bienvenidadocente.class);
-//            startActivity(vtn);
-//        }else if(txtUser.getText().toString().equals("wosita") && txtPasword.getText().toString().equals("12345")){
-//            Intent vtn=new Intent(MainActivity.this,bienbenidocoordinador.class);
-//            startActivity(vtn);
-//        }else if(txtUser.getText().toString().equals("empresa") && txtPasword.getText().toString().equals("12345")){
-//            Intent vtn=new Intent(MainActivity.this,bienvenidaempresa.class);
-//            startActivity(vtn);
-//        }else{
-//
-//        }
     }
 
     private void  MostrarJson(){
@@ -132,17 +142,18 @@ public class MainActivity extends AppCompatActivity {
                             rol += roles.getRolnombre();
                             if(rol.equals("ROLE_ESTUDIANTE")){
                                 idus = id; nombre_carrera=carrera;
+                                UserSingleton.setIdUsuario(idus);
                                 UserSingleton.setNombre_carrera(nombre_carrera);
                                 nombreest = nombres;
                                 UserSingleton.setNombres(nombreest);
                                 apellidoest = apellidos;
                                 UserSingleton.setApellidos(apellidoest);
                                 sesionIniciada = true;
+
+
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenida.class);
                                 startActivity(vntmenustudiante);
                                 Usuario.rol=rol;
-
-                                Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
                                 MostrarNotiAceptacion();
                                 MostrarNotiConvo();
 
@@ -161,7 +172,6 @@ public class MainActivity extends AppCompatActivity {
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenidadocente.class);
                                 startActivity(vntmenustudiante);
                                 Usuario.rol=rol;
-                                Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
 
                             }
 
@@ -176,12 +186,12 @@ public class MainActivity extends AppCompatActivity {
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenidaempresa.class);
                                 startActivity(vntmenustudiante);
                                 Usuario.rol=rol;
-                                Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
 
                             }
-                            Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
+
                             if(rol.equals("ROLE_CORDINADOR")){
                                 idus = id;
+                                UserSingleton.setIdUsuario(idus);
                                 nombreest = nombres;
                                 UserSingleton.setNombres(nombreest);
                                 apellidoest = apellidos;
@@ -190,8 +200,6 @@ public class MainActivity extends AppCompatActivity {
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienbenidocoordinador.class);
                                 startActivity(vntmenustudiante);
                                 Usuario.rol=rol;
-                                Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
-
                             }
 
                             if(rol.equals("ROLE_RESPONSABLEPP")){
@@ -205,15 +213,24 @@ public class MainActivity extends AppCompatActivity {
                                 Intent vntmenustudiante=new Intent(MainActivity.this,bienvenidadresponsable.class);
                                 startActivity(vntmenustudiante);
                                 Usuario.rol=rol;
-                                Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
-
                             }
 
                         }
                     }
                 }
                 if (!sesionIniciada) {
-                    Toast.makeText(MainActivity.this, "No se pudo iniciar seccion", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("¡Ups!")
+                            .setMessage("No se pudo iniciar sesión"+"\n"+"Usuario o contraseña incorrecta"
+                            )
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .setIcon(R.drawable.advertencia)
+                            .show();
                 }
             }
             @Override

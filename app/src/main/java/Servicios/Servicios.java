@@ -18,6 +18,9 @@ public interface Servicios {
     @GET("all")
     Call<List<Usuario>> getUsuarios();
 
+    @GET("buscar/{idUsuario}")
+    Call<Usuario> getUsuariosbyId(@Path("idUsuario") int idUsuario);
+
     @GET("estadoxusuario/{idUsuario}")
     Call<Boolean> getEstadoPorUsuario(@Path("idUsuario") int idUsuario);
 
